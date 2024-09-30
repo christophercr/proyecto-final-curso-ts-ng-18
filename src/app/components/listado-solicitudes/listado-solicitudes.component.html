@@ -1,0 +1,31 @@
+<h2>Listado de Solicitudes</h2>
+@if(solicitudes.length > 0){
+    <table>
+        <thead>
+            <tr>
+                <th>Nombre Completo</th>
+                <th>Email</th>
+                <th>Edad</th>
+                <th>Años de Exp.</th>
+                <th>Puesto Solicitado</th>
+                <th>F. Solicitud</th>
+                <th>Estado Solicitud</th>
+            </tr>
+        </thead>
+        <tbody>
+            @for(solicitud of solicitudes; track solicitud){
+                <tr>
+                    <td>{{solicitud.persona.nombreCompleto}}</td>
+                    <td>{{solicitud.persona.email}}</td>
+                    <td>{{solicitud.persona.fechaNacimiento|edadDesdeFechaNacimiento}}</td>
+                    <td>{{solicitud.persona.aniosExperiencia}}</td>
+                    <td>{{solicitud.puestoSolicitado}}</td>
+                    <td>{{solicitud.fechaSolicitud}}</td>
+                    <td>{{solicitud.estadoSolicitud}}</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}@else{
+    <p>No hay ninguna solicitud que mostrar.</p>
+}
