@@ -1,6 +1,6 @@
-<h2>Listado de Solicitudes</h2>
 @if(solicitudes.length > 0){
     <table>
+        <caption>Listado de Solicitudes</caption>
         <thead>
             <tr>
                 <th>Nombre Completo</th>
@@ -10,6 +10,7 @@
                 <th>Puesto Solicitado</th>
                 <th>F. Solicitud</th>
                 <th>Estado Solicitud</th>
+                <th>Eliminar Solicitud</th>
             </tr>
         </thead>
         <tbody>
@@ -18,10 +19,13 @@
                     <td>{{solicitud.persona.nombreCompleto}}</td>
                     <td>{{solicitud.persona.email}}</td>
                     <td>{{solicitud.persona.fechaNacimiento|edadDesdeFechaNacimiento}}</td>
-                    <td>{{solicitud.persona.aniosExperiencia}}</td>
+                    <td>{{solicitud.aniosExperiencia}}</td>
                     <td>{{solicitud.puestoSolicitado}}</td>
                     <td>{{solicitud.fechaSolicitud}}</td>
                     <td>{{solicitud.estadoSolicitud}}</td>
+                    <td>
+                        <button type="button" (click)="borrarSolicitud(solicitud.id)">X</button>
+                    </td>
                 </tr>
             }
         </tbody>

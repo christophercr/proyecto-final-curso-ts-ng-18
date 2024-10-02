@@ -1,0 +1,9 @@
+<app-menu-nav></app-menu-nav>
+
+<section>
+    <article>
+        <app-listado-solicitudes 
+            (solicitudBorrada)="eliminarLibro($event)"
+            [solicitudes]="coleccionSolicitudes"/>
+    </article>
+</section>

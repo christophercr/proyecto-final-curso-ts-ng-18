@@ -1,0 +1,38 @@
+{
+    "solicitudes": [
+        {
+            "persona":{
+                "nombreCompleto": "Alberto M.",
+                "email": "albertoM@gmail.com",
+                "fechaNacimiento": "17/04/1983"
+            },
+            "aniosExperiencia": 7,
+            "puestoSolicitado": "Developer",
+            "fechaSolicitud": "16/09/2024",
+            "estadoSolicitud": "En espera"
+        },
+        {
+            "persona":{
+                "nombreCompleto": "Tamara C.",
+                "email": "tamaraG@gmail.com",
+                "fechaNacimiento": "01/09/1982"
+            },
+            "aniosExperiencia": 8,
+            "puestoSolicitado": "Designer",
+            "fechaSolicitud": "06/09/2024",
+            "estadoSolicitud": "En espera"
+        },
+        {
+            "persona":{
+                "nombreCompleto": "Thiago V.",
+                "email": "thiagoV@gmail.com",
+                "fechaNacimiento": "29/12/1992"
+            },
+            "aniosExperiencia": 6,
+            "puestoSolicitado": "Analyst",
+            "fechaSolicitud": "02/09/2024",
+            "estadoSolicitud": "Rechazada"
+        }
+    ]
+ }
+ 
