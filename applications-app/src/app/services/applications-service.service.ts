@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import {ApplicantsModel} from '../models/applicants-model';
+import {ApplicantsModel} from '../models/applicants.model';
 import { Status } from '../constants/application-status.constant';
 
 @Injectable({

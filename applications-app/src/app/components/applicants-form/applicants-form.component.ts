@@ -4,7 +4,8 @@ import {MatSelectModule} from '@angular/material/select';
 import {MatInputModule} from '@angular/material/input';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import { Status } from '../../constants/application-status.constant';
-import { ApplicantsModelComponent } from '../../model/applicants-model/applicants-model';
+import { ApplicantsModel} from '../../models/applicants.model';
+import { FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-applicants-form',
@@ -15,10 +16,14 @@ import { ApplicantsModelComponent } from '../../model/applicants-model/applicant
 })
 export class ApplicantsFormComponent {
 
-  applicant : ApplicantsModelComponent;
+  applicant : ApplicantsModel;
 
   constructor() {
-    this.applicant = new ApplicantsModelComponent( 'Jorge','jrgmad@gmail.com', 44 , 2, 'Developer', 20/09/2024, Status.WaitListed)
+    this.applicant = new ApplicantsModel( 'Jorge','jrgmad@gmail.com', 44 , 2, 'Developer', 20/09/2024, Status.WaitListed)
   }
+
+  myForm = new FormGroup(
+    applicant.
+  );
 
 }
