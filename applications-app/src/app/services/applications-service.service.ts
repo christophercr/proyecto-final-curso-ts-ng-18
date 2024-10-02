@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import {ApplicantsModel} from '../models/applicants.model';
+import {ApplicantModel} from '../models/applicant.model';
 import { Status } from '../constants/application-status.constant';
 
 @Injectable({
@@ -7,7 +7,7 @@ import { Status } from '../constants/application-status.constant';
 })
 export class ApplicationsServiceService {
 
-_aplicant : ApplicantsModel = {
+_aplicant : ApplicantModel = {
   name : 'Jorge Álvarez',
 email : 'jrgmad@hotmail.com',
 age : 44,
