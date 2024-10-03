@@ -1,9 +1,8 @@
 import { Expose } from 'class-transformer';
-import { EdadDesdeFechaNacimientoPipe } from '../pipes/edad-desde-fecha-nacimiento.pipe';
 
 export class Persona {
     private _nombreCompleto : string;
-        @Expose() get nombreCompleto(): string {return this._nombreCompleto;}
+        @Expose()public  get nombreCompleto(): string {return this._nombreCompleto;}
         set nombreCompleto(nombreCompleto : string) {this._nombreCompleto = nombreCompleto}
 
     private _email : string;
