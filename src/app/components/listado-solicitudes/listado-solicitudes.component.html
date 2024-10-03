@@ -18,10 +18,10 @@
                 <tr>
                     <td>{{solicitud.persona.nombreCompleto}}</td>
                     <td>{{solicitud.persona.email}}</td>
-                    <td>{{solicitud.persona.fechaNacimiento|edadDesdeFechaNacimiento}}</td>
+                    <td>{{solicitud.persona.fechaNacimiento | edadDesdeFechaNacimiento}}</td>
                     <td>{{solicitud.aniosExperiencia}}</td>
                     <td>{{solicitud.puestoSolicitado}}</td>
-                    <td>{{solicitud.fechaSolicitud}}</td>
+                    <td>{{solicitud.fechaSolicitud | date:'dd/MM/yyyy'}}</td>
                     <td>{{solicitud.estadoSolicitud}}</td>
                     <td>
                         <button type="button" (click)="borrarSolicitud(solicitud.id)">X</button>
@@ -33,3 +33,4 @@
 }@else{
     <p>No hay ninguna solicitud que mostrar.</p>
 }
+<router-outlet />

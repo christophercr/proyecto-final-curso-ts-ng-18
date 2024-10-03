@@ -36,7 +36,7 @@ export class SolicitudService implements ISolicitudService<Solicitud>{
       '',
       new Persona('Alberto M.', 'alberto@gmail.com', new Date('1983-04-17')),
       'Developer',
-      '28/09/2024', 
+      new Date(2024, 9, 24), 
       'En espera',
       7
     );
@@ -44,7 +44,7 @@ export class SolicitudService implements ISolicitudService<Solicitud>{
       '',
       new Persona('Tamara C.', 'tamara@gmail.com', new Date('1982-11-21')),
       'Developer',
-      '17/09/2024', 
+      new Date(2024, 9, 17), 
       'En espera',
       4
     );
@@ -57,6 +57,12 @@ export class SolicitudService implements ISolicitudService<Solicitud>{
       this._listaSolicitudes = this._listaSolicitudes.filter((solicitud) => {
         return solicitud.id !== solicitudId;
       });
+    }
+  }
+
+  crearSolicitud(solicitud:Solicitud){
+    if (solicitud) {
+      this._listaSolicitudes.push(solicitud);
     }
   }
   
