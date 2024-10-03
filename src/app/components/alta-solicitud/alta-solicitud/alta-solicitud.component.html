@@ -34,5 +34,5 @@
         <button id="submit" (click)="crearSolicitud()">Grabar Solicitud</button>
       </div>
     </div>
-    <div *ngIf="myForm.errors.length > 0">Errores de validación: (all fields): {{ myForm.errors | json }}</div>
+    <!-- <p *ngIf="myForm.errors != null">Errores de validación: (all fields): {{ myForm.errors | json }}</p> -->
 </form>
