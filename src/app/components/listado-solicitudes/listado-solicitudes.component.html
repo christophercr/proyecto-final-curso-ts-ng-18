@@ -1,4 +1,9 @@
 @if(solicitudes.length > 0){
+    <select name="orden" id="orden" (change)="ordenar($event)">
+        <option value="Nombre">Nombre</option>
+        <option value="Estado">Estado Solicitud</option>
+        <option value="Puesto">Puesto</option>
+    </select>
     <table>
         <caption>Listado de Solicitudes</caption>
         <thead>
@@ -14,7 +19,7 @@
             </tr>
         </thead>
         <tbody>
-            @for(solicitud of solicitudes; track solicitud){
+            @for(solicitud of solicitudes; track $index){
                 <tr>
                     <td>{{solicitud.persona.nombreCompleto}}</td>
                     <td>{{solicitud.persona.email}}</td>

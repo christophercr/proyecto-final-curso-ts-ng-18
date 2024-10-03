@@ -22,5 +22,34 @@ export class ListadoSolicitudesComponent {
   borrarSolicitud(id: string | undefined): void {
     this.solicitudBorrada.emit(id);
   }
+
+  ordenar(event:any):void{
+    switch(event.target.value) { 
+      case 'Nombre': { 
+        this.solicitudes.sort(function (a, b) {
+          if (a.persona.nombreCompleto > b.persona.nombreCompleto) { return 1; }
+          if (a.persona.nombreCompleto < b.persona.nombreCompleto) { return -1; }
+          return 0;
+        });
+         break; 
+      } 
+      case 'Estado': { 
+        this.solicitudes.sort(function (a, b) {
+          if (a.estadoSolicitud > b.estadoSolicitud) { return 1; }
+          if (a.estadoSolicitud < b.estadoSolicitud) { return -1; }
+          return 0;
+        });
+         break; 
+      } 
+      case 'Puesto': {
+        this.solicitudes.sort(function (a, b) {
+          if (a.puestoSolicitado > b.puestoSolicitado) { return 1; }
+          if (a.puestoSolicitado < b.puestoSolicitado) { return -1; }
+          return 0;
+        });
+          break;
+      }
+   } 
+  }
   
 }
