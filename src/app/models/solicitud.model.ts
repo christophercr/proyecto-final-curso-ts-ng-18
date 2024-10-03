@@ -19,9 +19,9 @@ export class Solicitud {
         @Expose()public get puestoSolicitado(): string {return this._puestoSolicitado;}
         set puestoSolicitado(puestoSolicitado : string) {this._puestoSolicitado = puestoSolicitado}
 
-    private _fechaSolicitud : string;
-        @Expose() public get fechaSolicitud(): string {return this._fechaSolicitud;}
-        set fechaSolicitud(fechaSolicitud : string) {this._fechaSolicitud = fechaSolicitud}
+    private _fechaSolicitud : Date;
+        @Expose() public get fechaSolicitud(): Date {return this._fechaSolicitud;}
+        set fechaSolicitud(fechaSolicitud : Date) {this._fechaSolicitud = fechaSolicitud}
 
     private _estadoSolicitud : EstadoSolicitud;
         @Expose() public get estadoSolicitud(): EstadoSolicitud {return this._estadoSolicitud;}
@@ -31,7 +31,7 @@ export class Solicitud {
     id: string,
     persona: Persona,
     puestoSolicitado: string,
-    fechaSolicitud: string,
+    fechaSolicitud: Date,
     estadoSolicitud: EstadoSolicitud,
     aniosExperiencia: number
   ) {
