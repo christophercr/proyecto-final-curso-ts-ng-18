@@ -4,7 +4,7 @@
         <div class="column">
           <div class="input-group">
             <label for="input-nombre">Nombre Completo: </label>
-            <input id="input-nombre" [formControl]="myForm.controls.nombre">
+            <input id="input-nombre" [formControl]="myForm.controls.nombreCompleto">
           </div>
           <div class="input-group">
             <label for="input-email">Email: </label>
@@ -12,7 +12,7 @@
           </div>
           <div class="input-group">
             <label for="input-fecha-nac">Fecha de nacimiento: </label>
-            <input type="datetime-local" id="input-fecha-nac" [formControl]="myForm.controls.fechaNacimiento">
+            <input type="date" id="input-fecha-nac" [formControl]="myForm.controls.fechaNacimiento">
           </div>
           <div class="input-group">
             <label for="input-exp">Años de Experiencia: </label>

@@ -1,4 +1,4 @@
-import { EstadoSolicitud } from '../custom-types/custom-types';
+import { EstadoSolicitud, Puesto } from '../custom-types/custom-types';
 import { Persona } from './persona.model';
 import { Expose } from 'class-transformer';
 
@@ -15,9 +15,9 @@ export class Solicitud {
         @Expose() public get aniosExperiencia(): number {return this._aniosExperiencia;}
         set aniosExperiencia(aniosExperiencia : number) {this._aniosExperiencia = aniosExperiencia}
 
-    private _puestoSolicitado : string;
-        @Expose()public get puestoSolicitado(): string {return this._puestoSolicitado;}
-        set puestoSolicitado(puestoSolicitado : string) {this._puestoSolicitado = puestoSolicitado}
+    private _puestoSolicitado : Puesto;
+        @Expose()public get puestoSolicitado(): Puesto {return this._puestoSolicitado;}
+        set puestoSolicitado(puestoSolicitado : Puesto) {this._puestoSolicitado = puestoSolicitado}
 
     private _fechaSolicitud : Date;
         @Expose() public get fechaSolicitud(): Date {return this._fechaSolicitud;}
@@ -30,7 +30,7 @@ export class Solicitud {
   constructor(
     id: string,
     persona: Persona,
-    puestoSolicitado: string,
+    puestoSolicitado: Puesto,
     fechaSolicitud: Date,
     estadoSolicitud: EstadoSolicitud,
     aniosExperiencia: number

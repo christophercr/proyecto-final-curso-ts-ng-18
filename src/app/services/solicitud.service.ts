@@ -35,7 +35,7 @@ export class SolicitudService implements ISolicitudService<Solicitud>{
     let solicitud1 = new Solicitud(
       '',
       new Persona('Alberto M.', 'alberto@gmail.com', new Date('1983-04-17')),
-      'Developer',
+      'Programador',
       new Date(2024, 9, 24), 
       'En espera',
       7
@@ -43,9 +43,9 @@ export class SolicitudService implements ISolicitudService<Solicitud>{
     let solicitud2 = new Solicitud(
       '',
       new Persona('Tamara C.', 'tamara@gmail.com', new Date('1982-11-21')),
-      'Developer',
+      'Analista',
       new Date(2024, 9, 17), 
-      'En espera',
+      'Aceptada',
       4
     );
     this.listaSolicitudes[0] = solicitud1;
