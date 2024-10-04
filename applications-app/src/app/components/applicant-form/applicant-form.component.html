@@ -1,17 +1,15 @@
-<form [formGroup]="applicantForm" (ngSubmit)="onSubmit()">
-  <p>
+<form [formGroup]="applicantForm" (ngSubmit)="onSubmit()" class="mt-1 ml-1">
+<p>
     <mat-form-field appearance="fill">
       <mat-label>Nombre y apellidos:</mat-label>
       
-    <input matInput placeholder="Nombre" id="name" formControlName="name" />
+    <input matInput id="name" formControlName="name" />
     
     @if (applicantForm.controls.name.invalid && (applicantForm.dirty || applicantForm.touched)) {
-    <div>
-      Nombre es requerido.
-    </div>
-    } @else{<mat-icon matSuffix>sentiment_very_satisfied</mat-icon>}
+    } @else {<mat-icon matSuffix>sentiment_very_satisfied</mat-icon>}
     <mat-hint>Por ejemplo "Cunchis Doe"</mat-hint>
   </mat-form-field>
+</p>
 
   <div>
     <label for="email">Email:</label>
