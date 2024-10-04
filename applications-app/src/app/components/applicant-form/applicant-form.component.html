@@ -1,6 +1,6 @@
 
 
-<mat-form-field>
+<!-- <mat-form-field>
     <mat-label>Input</mat-label>
     <input matInput>
   </mat-form-field>
@@ -14,15 +14,18 @@
   <mat-form-field>
     <mat-label>Textarea</mat-label>
     <textarea matInput></textarea>
-  </mat-form-field>
+  </mat-form-field> -->
 
   <form [formGroup]="applicantForm" (ngSubmit)="onSubmit()">
     <div>
       <label for="name">Nombre:</label>
       <input id="name" formControlName="name" />
-      <div *ngIf="usuarioForm.get('name').invalid && usuarioForm.get('name').touched">
-        Nombre es requerido.
-      </div>
+      @if (applicantForm.controls.name && applicantForm.controls.name.touched) {
+        <div>
+          Nombre es requerido.
+        </div>
+      }
+      
     </div>
   
     <div>
