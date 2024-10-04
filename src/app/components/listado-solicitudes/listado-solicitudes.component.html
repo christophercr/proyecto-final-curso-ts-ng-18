@@ -19,7 +19,7 @@
             </tr>
         </thead>
         <tbody>
-            @for(solicitud of solicitudes; track $index){
+            @for(solicitud of solicitudes; track solicitud.id){
                 <tr>
                     <td>{{solicitud.persona.nombreCompleto}}</td>
                     <td>{{solicitud.persona.email}}</td>
