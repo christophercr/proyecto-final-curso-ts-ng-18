@@ -4,13 +4,13 @@ import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { Status } from '../../constants/application-status.constant';
 import { ApplicantModel } from '../../models/applicant.model';
-import { FormGroup} from '@angular/forms';
+import { FormGroup, ReactiveFormsModule} from '@angular/forms';
 import { FormBuilder, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-applicants-form',
   standalone: true,
-  imports: [MatFormFieldModule, MatInputModule, MatSelectModule],
+  imports: [MatFormFieldModule, MatInputModule, MatSelectModule, ReactiveFormsModule],
   templateUrl: './applicant-form.component.html',
   styleUrl: './applicant-form.component.css',
 })
