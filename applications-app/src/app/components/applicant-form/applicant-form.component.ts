@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { MatSelectModule } from '@angular/material/select';
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
@@ -15,24 +15,20 @@ import { FormBuilder, Validators } from '@angular/forms';
   styleUrl: './applicant-form.component.css',
 })
 export class ApplicantsFormComponent {
-  applicantForm: FormGroup;
+  fb = inject(FormBuilder);
+  applicantForm = this.fb.group({
+    name: ['', Validators.required],
+    email: ['', [Validators.required, Validators.email]],
+    age: ['', [Validators.required, Validators.min(0), Validators.max(120)]],
+    yearsExp: [  '', [Validators.required, Validators.min(0), Validators.max(100)],
+    ],
+    position: ['', Validators.required],
+    dateOfApplication: ['', Validators.required],
+    status: ['', Validators.required],
+  }); ;
   statuses = Object.values(Status);
 
   /* applicant : ApplicantModel; */
-
-  constructor(private fb: FormBuilder) {
-    /* this.applicant = new ApplicantModel( 'Jorge','jrgmad@gmail.com', 44 , 2, 'Developer', '20/09/2024', Status.WaitListed) */
-    this.applicantForm = this.fb.group({
-      name: ['', Validators.required],
-      email: ['', [Validators.required, Validators.email]],
-      age: ['', [Validators.required, Validators.min(0), Validators.max(120)]],
-      yearsExp: [  '', [Validators.required, Validators.min(0), Validators.max(100)],
-      ],
-      position: ['', Validators.required],
-      dateOfApplication: ['', Validators.required],
-      status: ['', Validators.required],
-    });
-  }
 
   onSubmit() {
     if (this.applicantForm.valid) {
