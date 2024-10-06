@@ -18,10 +18,22 @@ import { FormBuilder, Validators } from '@angular/forms';
 
 export class ApplicantsFormComponent {
 
+ /*  applicantMod = new ApplicantModel(
+    'Manolo',
+    'manolete@manolete.com',
+    33,
+    4,
+    'Analista',
+    '06/10/2024',
+    Status.Approved,
+  ); */
+
+  
+
   fb = inject(FormBuilder);
 
   applicantForm = this.fb.group({
-    name: ['', Validators.required],
+    name: ['', Validators.required, Validators.min(2), Validators.max(120)],
     email: ['', [Validators.required, Validators.email]],
     age: ['', [Validators.required, Validators.min(0), Validators.max(120)]],
     yearsExp: [  '', [Validators.required, Validators.min(0), Validators.max(100)],

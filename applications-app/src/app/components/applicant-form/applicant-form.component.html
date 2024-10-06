@@ -1,63 +1,73 @@
 <form [formGroup]="applicantForm" (ngSubmit)="onSubmit()" class="mt-1 ml-1">
-<p>
+  <p>
     <mat-form-field appearance="fill">
       <mat-label>Nombre y apellidos:</mat-label>
-      
-    <input matInput id="name" formControlName="name" />
-    
-    @if (applicantForm.controls.name.invalid && (applicantForm.dirty || applicantForm.touched)) {
-    } @else {<mat-icon matSuffix>sentiment_very_satisfied</mat-icon>}
-    <mat-hint>Por ejemplo "Cunchis Doe"</mat-hint>
-  </mat-form-field>
-</p>
 
-  <div>
-    <label for="email">Email:</label>
+      <input matInput id="name" formControlName="name" />
+
+      @if (applicantForm.controls.name.invalid && (applicantForm.dirty ||
+      applicantForm.touched)) { } @else {<mat-icon matSuffix
+        >sentiment_very_satisfied</mat-icon
+      >}
+      <mat-hint>Por ejemplo "Cunchis Doe"</mat-hint>
+    </mat-form-field>
+  </p>
+
+  <!-- <p>
+<mat-form-field appearance="fill">
+  <mat-label>Email:</mat-label>
     <input id="email" formControlName="email" />
     @if (applicantForm.controls.email.invalid && (applicantForm.dirty || applicantForm.touched)) {
-    <div>
-      Email es requerido y debe ser válido.
-    </div>
-    }
-  </div>
+     } @else {<mat-icon matSuffix>sentiment_very_satisfied</mat-icon>}
+      <mat-hint>Por ejemplo cunchis&#64;loquepuedas.com</mat-hint>
+    </mat-form-field>
+  </p> -->
+
+  <label for="email">Email:</label>
+  <input id="email" formControlName="email" />
+  @if (applicantForm.controls.email.invalid && (applicantForm.dirty ||
+  applicantForm.touched)) { } @else {<mat-icon matSuffix
+    >sentiment_very_satisfied</mat-icon
+  >}
+  <div>Por ejemplo cunchis&#64;loquepuedas.com</div>
 
   <div>
     <label for="age">Edad:</label>
     <input id="age" type="number" formControlName="age" />
-    @if (applicantForm.controls.age.invalid && (applicantForm.dirty || applicantForm.touched)) {
-    <div>
-      Edad es requerida y debe ser un número positivo.
-    </div>
+    @if (applicantForm.controls.age.invalid && (applicantForm.dirty ||
+    applicantForm.touched)) {
+    <div>Edad es requerida y debe ser un número positivo.</div>
     }
   </div>
 
   <div>
     <label for="yearsExp">Años de experiencia:</label>
     <input id="yearsExp" type="number" formControlName="yearsExp" />
-    @if (applicantForm.controls.yearsExp.invalid && (applicantForm.dirty || applicantForm.touched)) {
-    <div>
-      Años de experiencia es requerido y debe ser un número positivo.
-    </div>
+    @if (applicantForm.controls.yearsExp.invalid && (applicantForm.dirty ||
+    applicantForm.touched)) {
+    <div>Años de experiencia es requerido y debe ser un número positivo.</div>
     }
   </div>
 
   <div>
     <label for="position">Posición:</label>
     <input id="position" formControlName="position" />
-    @if (applicantForm.controls.age.invalid && (applicantForm.dirty || applicantForm.touched)) {
-    <div>
-      Posición es requerida.
-    </div>
+    @if (applicantForm.controls.age.invalid && (applicantForm.dirty ||
+    applicantForm.touched)) {
+    <div>Posición es requerida.</div>
     }
   </div>
 
   <div>
     <label for="dateOfApplication">Fecha de aplicación:</label>
-    <input id="dateOfApplication" type="date" formControlName="dateOfApplication" />
-    @if (applicantForm.controls.dateOfApplication.invalid && (applicantForm.dirty || applicantForm.touched)) {
-    <div>
-      Fecha de aplicación es requerida.
-    </div>
+    <input
+      id="dateOfApplication"
+      type="date"
+      formControlName="dateOfApplication"
+    />
+    @if (applicantForm.controls.dateOfApplication.invalid &&
+    (applicantForm.dirty || applicantForm.touched)) {
+    <div>Fecha de aplicación es requerida.</div>
     }
   </div>
 
@@ -68,12 +78,12 @@
       <option [value]="status">{{ status }}</option>
       }
     </select>
-    @if (applicantForm.status && (applicantForm.dirty || applicantForm.touched)) {
-    <div>
-      Estado es requerido.
-    </div>
+    @if (applicantForm.status && (applicantForm.dirty || applicantForm.touched))
+    {
+    <div>Estado es requerido.</div>
     }
   </div>
 
   <button type="submit" [disabled]="applicantForm.invalid">Enviar</button>
   <form action=""></form>
+</form>
