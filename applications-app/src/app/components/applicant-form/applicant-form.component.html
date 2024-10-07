@@ -2,9 +2,7 @@
   <p>
     <mat-form-field appearance="fill">
       <mat-label>Nombre y apellidos:</mat-label>
-
       <input matInput id="name" formControlName="name" />
-
       @if (applicantForm.controls.name.invalid && (applicantForm.dirty ||
       applicantForm.touched)) { } @else {<mat-icon matSuffix
         >sentiment_very_satisfied</mat-icon
@@ -13,76 +11,85 @@
     </mat-form-field>
   </p>
 
-  <!-- <p>
+  <p>
 <mat-form-field appearance="fill">
   <mat-label>Email:</mat-label>
-    <input id="email" formControlName="email" />
+    <input matInput id="email" formControlName="email" />
     @if (applicantForm.controls.email.invalid && (applicantForm.dirty || applicantForm.touched)) {
      } @else {<mat-icon matSuffix>sentiment_very_satisfied</mat-icon>}
       <mat-hint>Por ejemplo cunchis&#64;loquepuedas.com</mat-hint>
     </mat-form-field>
-  </p> -->
+  </p>
 
-  <label for="email">Email:</label>
-  <input id="email" formControlName="email" />
-  @if (applicantForm.controls.email.invalid && (applicantForm.dirty ||
-  applicantForm.touched)) { } @else {<mat-icon matSuffix
-    >sentiment_very_satisfied</mat-icon
-  >}
-  <div>Por ejemplo cunchis&#64;loquepuedas.com</div>
+  <p style="margin-top: 28px;">
+    <mat-form-field appearance="fill">
+      <mat-label>Edad:</mat-label>
+      <input matInput id="age" formControlName="age" type="number"/>
+      @if (applicantForm.controls.age.invalid && (applicantForm.dirty ||
+      applicantForm.touched)) { 
+           <span>La edad es obligatoria y debe ser un número entre 18 y 120.</span>
+      } @else {<mat-icon matSuffix
+        >sentiment_very_satisfied</mat-icon
+      >}
+    </mat-form-field>
+  </p>
+  
+  <p>
+  <mat-form-field appearance="fill">
+    <mat-label>Años de experiencia:</mat-label>
+      <input matInput id="yearsExp" formControlName="yearsExp" type="number" />
+      @if (applicantForm.controls.yearsExp.invalid && (applicantForm.dirty || applicantForm.touched)) {
+        <span>Los años de experiencia son obligatorios y deben ser un número entre 0 y 100.</span>
+       } @else {<mat-icon matSuffix>sentiment_very_satisfied</mat-icon>}
+      </mat-form-field>
+    </p>
 
-  <div>
-    <label for="age">Edad:</label>
-    <input id="age" type="number" formControlName="age" />
-    @if (applicantForm.controls.age.invalid && (applicantForm.dirty ||
-    applicantForm.touched)) {
-    <div>Edad es requerida y debe ser un número positivo.</div>
-    }
-  </div>
+    <p>
+      <mat-form-field>
+        <mat-label>Puesto:</mat-label>
+        <input matInput id="position" formControlName="position"/>
+        @if (applicantForm.controls.position.invalid && (applicantForm.dirty ||
+        applicantForm.touched)) { 
+        } @else {<mat-icon matSuffix
+          >sentiment_very_satisfied</mat-icon
+        >}
+      </mat-form-field>
+    </p>
 
-  <div>
-    <label for="yearsExp">Años de experiencia:</label>
-    <input id="yearsExp" type="number" formControlName="yearsExp" />
-    @if (applicantForm.controls.yearsExp.invalid && (applicantForm.dirty ||
-    applicantForm.touched)) {
-    <div>Años de experiencia es requerido y debe ser un número positivo.</div>
-    }
-  </div>
+    <p>
+    <mat-form-field appearance="fill">
+      <mat-label>Elige una fecha</mat-label>
+      <input matInput formControlName="dateOfApplication" [matDatepicker]="picker"/>
+      <mat-hint>DD/MM/YYYY</mat-hint>
+      <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+      <mat-datepicker #picker></mat-datepicker>
+      @if (applicantForm.controls.dateOfApplication.invalid && (applicantForm.dirty ||
+      applicantForm.touched)) { 
+      } @else {<mat-icon matSuffix
+        >sentiment_very_satisfied</mat-icon
+      >}
+    </mat-form-field>
+</p>
+ 
+<p>
+<mat-form-field>
+  <mat-label>Estado de la candidatura</mat-label>
 
-  <div>
-    <label for="position">Posición:</label>
-    <input id="position" formControlName="position" />
-    @if (applicantForm.controls.age.invalid && (applicantForm.dirty ||
-    applicantForm.touched)) {
-    <div>Posición es requerida.</div>
-    }
-  </div>
+  <mat-select>
 
-  <div>
-    <label for="dateOfApplication">Fecha de aplicación:</label>
-    <input
-      id="dateOfApplication"
-      type="date"
-      formControlName="dateOfApplication"
-    />
-    @if (applicantForm.controls.dateOfApplication.invalid &&
-    (applicantForm.dirty || applicantForm.touched)) {
-    <div>Fecha de aplicación es requerida.</div>
-    }
-  </div>
-
-  <div>
-    <label for="status">Estado:</label>
-    <select id="status" formControlName="status">
-      @for (status of statuses; track status) {
-      <option [value]="status">{{ status }}</option>
+    @for (status of statuses; track status) {
+      <mat-option  [value]="status">{{ status }}</mat-option >
       }
-    </select>
     @if (applicantForm.status && (applicantForm.dirty || applicantForm.touched))
     {
-    <div>Estado es requerido.</div>
-    }
-  </div>
+    <span>Estado es requerido.</span>
+    } @else {<mat-icon matSuffix
+      >sentiment_very_satisfied</mat-icon
+    >}
+
+  </mat-select>
+</mat-form-field>
+</p>
 
   <button type="submit" [disabled]="applicantForm.invalid">Enviar</button>
   <form action=""></form>
