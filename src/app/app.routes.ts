@@ -1,6 +1,7 @@
 import { Routes } from '@angular/router';
 import { ListadoSolicitudesPageComponent } from './pages/listado-solicitudes-page/listado-solicitudes-page/listado-solicitudes-page.component';
-import { AltaSolicitudComponent } from './components/alta-solicitud/alta-solicitud/alta-solicitud.component';
+import { AltaSolicitudComponent } from './components/alta-solicitud/alta-solicitud.component';
+import { ModificarSolicitudComponent } from './components/modificar-solicitud/modificar-solicitud/modificar-solicitud.component';
 
 export const routes: Routes = [
     {
@@ -8,13 +9,17 @@ export const routes: Routes = [
       component: ListadoSolicitudesPageComponent,
       children: [
         {
-          path: '',  // => localhost:3000/books/
-          pathMatch: 'full', // pero aquí le decimos que no añada '/'  => localhost:3000/books
+          path: '',
+          pathMatch: 'full',
           redirectTo: 'collection-list',
         },
         {
-          path: 'alta-solicitud', // => localhost:3000/books/new-book
+          path: 'alta-solicitud',
           component: AltaSolicitudComponent
+        },
+        {
+          path: 'modificar-solicitud',
+          component: ModificarSolicitudComponent
         }
       ]
     },

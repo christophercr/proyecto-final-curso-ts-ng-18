@@ -1,0 +1,62 @@
+<h2>Alta de solicitud</h2>
+<form id="alta-solicitud-form" class="alta-form" [formGroup]="myForm">
+    <div class="row">
+        <div class="column">
+          <div class="input-group">
+            <label for="input-nombre">Nombre Completo: </label>
+            <div>
+              <input id="input-nombre" [formControl]="myForm.controls.nombreCompleto">
+              @if(myForm.controls.nombreCompleto.dirty){
+                @if(myForm.controls.nombreCompleto.hasError('required')){ <span class="mensaje-error">Este campo es obligatorio</span> }
+                @if(myForm.controls.nombreCompleto.hasError('maxlength')){ <span class="mensaje-error">No puede superar los 40 caracteres</span> }
+              }
+            </div>
+          </div>
+          <div class="input-group">
+            <label for="input-email">Email: </label>
+            <div>
+              <input type="email" id="input-email" [formControl]="myForm.controls.email">
+              @if(myForm.controls.email.dirty){
+                @if(myForm.controls.email.hasError('required')){ <span class="mensaje-error">Este campo es obligatorio</span> }
+                @if(myForm.controls.email.hasError('email')){ <span class="mensaje-error">El formato del email no es válido</span> }
+              }
+            </div>
+          </div>
+          <div class="input-group">
+            <label for="input-fecha-nac">Fecha de nacimiento: </label>
+            <div>
+              <input type="date" id="input-fecha-nac" [formControl]="myForm.controls.fechaNacimiento">
+              @if(myForm.controls.fechaNacimiento.dirty){
+                @if(myForm.controls.fechaNacimiento.hasError('required')){ <span class="mensaje-error">Este campo es obligatorio</span> }
+                @if(myForm.controls.fechaNacimiento.hasError('email')){ <span class="mensaje-error">El formato del email no es válido</span> }
+              }
+            </div>
+          </div>
+          <div class="input-group">
+            <label for="input-exp">Años de Experiencia: </label>
+            <div>
+              <input type="number" id="input-exp" [formControl]="myForm.controls.aniosExperiencia">
+              @if(myForm.controls.aniosExperiencia.dirty){
+                @if(myForm.controls.aniosExperiencia.hasError('required')){ <span class="mensaje-error">Este campo es obligatorio</span> }
+                @if(myForm.controls.aniosExperiencia.hasError('pattern')){ <span class="mensaje-error">Tiene que ser un número</span> }
+              }{{myForm.controls.aniosExperiencia.errors | json}}
+            </div>
+          </div>
+        </div>
+        <div class="column">
+          <fieldset class="puesto">
+            <legend>¿Qué puesto estás solicitando?</legend>
+            <div class="puestos">
+                <label> <input type="radio" id="Programador" value="Programador" formControlName="puestoSolicitado"> Programador </label>
+                <label> <input type="radio" id="Diseñador" value="Diseñador" formControlName="puestoSolicitado"> Diseñador </label>
+                <label> <input type="radio" id="Analista" value="Analista" formControlName="puestoSolicitado"> Analista </label>
+                <label> <input type="radio" id="JefeProyecto"  value="JefeProyecto" formControlName="puestoSolicitado"> Jefe de Proyecto </label>
+            </div>
+          </fieldset>
+        </div>
+      <div class="row">
+        <button id="submit" (click)="crearSolicitud()" [disabled]="!myForm.valid">Grabar Solicitud</button>
+      </div>
+    </div>
+    <!-- <p *ngIf="myForm.errors != null">Errores de validación: (all fields): {{ myForm.errors | json }}</p> -->
+</form>

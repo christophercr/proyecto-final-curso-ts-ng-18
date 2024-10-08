@@ -1,12 +1,12 @@
 import { inject, Injectable } from '@angular/core';
-import { DeserializationFn, SolicitudStorageService } from '../models/solicitud-service.model';
+import { DeserializationFn } from '../models/solicitud-service.model';
 import { catchError, map, Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
 })
-export class SolicitudHttpService implements SolicitudStorageService{
+export class SolicitudHttpService{
   private readonly _http = inject(HttpClient);
 
   constructor() { }

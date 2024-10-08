@@ -6,11 +6,7 @@ export type DeserializationFn<S> = (serializedCollection: any) => S;
 
 export interface ISolicitudService<S> {
   consultarSolicitudes(): Solicitud[];
-  /* consultarSolicitudes(): Promise<Solicitud[]>; */
+  eliminarSolicitud(solicitudId:string):void;
 } 
 
-export interface SolicitudStorageService {
-  getAllItems<S>(deserializerFn: DeserializationFn<S>): Observable<S[]>;
-}
-
-export const SOLICITUD_STORAGE_SERVICE = new InjectionToken<SolicitudStorageService>('SolicitudStorageService');
+export const SOLICITUD_STORAGE_SERVICE = new InjectionToken('SolicitudStorageService');

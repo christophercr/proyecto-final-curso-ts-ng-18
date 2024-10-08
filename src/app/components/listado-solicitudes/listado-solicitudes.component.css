@@ -19,3 +19,16 @@ td {
     border: 1px solid black;
     padding: 8px;
 }
+
+.sorter{
+    width: 32px;
+}
+
+.sorter:hover{
+    filter: drop-shadow(3px 3px 2px #4444dd);
+}
+
+.column-sort{
+    display: flex;
+    flex-direction: row;
+}
