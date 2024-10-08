@@ -1,24 +1,31 @@
-import { Component } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { Component, EventEmitter, Output } from '@angular/core';
+import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
+import { AsyncPipe, JsonPipe, KeyValuePipe } from '@angular/common';
+import { Solicitud } from '../../models/solicitud.model';
+
 
 @Component({
   selector: 'app-solicitud-nueva',
   standalone: true,
-  imports: [],
+  imports: [ReactiveFormsModule, JsonPipe, KeyValuePipe, AsyncPipe],
   templateUrl: './solicitud-nueva.component.html',
   styleUrl: './solicitud-nueva.component.css'
 })
-export class SolicitudComponent {
+export class SolicitudNuevaComponent {
+ @Output()
+ created: EventEmitter<Solicitud> = new EventEmitter<Solicitud>(); 
+ 
     myForm = new FormGroup({
     nombre: new FormControl('', [Validators.required]),
     email: new FormControl('', [Validators.required]),
-    edad: new FormControl('', [Validators.required]),   
-    puesto-solicitud: new FormControl(''),
-    fecha-solicitud: new FormControl(''),
-    estado-solicitud: new FormControl(''),
+    edad: new FormControl('', [Validators.required]), 
+    anyosExperiencia: new FormControl('', [Validators.required]), 
+    puestoSolicitud: new FormControl(''),
+    fechaSolicitud: new FormControl(''),
+    estadoSolicitud: new FormControl('')
   });
 
-  crearSolicitud(): void {
+   crearSolicitud(): void {
     if (this.myForm.valid) {
       const rawValue: any = this.myForm.getRawValue();
 
@@ -26,16 +33,18 @@ export class SolicitudComponent {
         rawValue[key] = rawValue[key] === null ? undefined : rawValue[key];
       }
 
-      const bookToCreate: Solicitud = new Solicitud(
+      const solicitudACrear: Solicitud = new Solicitud(
         rawValue.nombre,
         rawValue.email === null ? undefined : rawValue.description,
-        rawValue.pictureLocation === null ? undefined : rawValue.pictureLocation,        
-        rawValue.author,
-        rawValue.numberOfPages,
+        rawValue.edad,
+        rawValue.anyosExperiencia,
+        rawValue.puestoSolicitado,
+        rawValue.fechaSolicitud, 
+        rawValue.estadoSolicitud,       
       );
 
-      this.created.emit(bookToCreate);
+      this.created.emit(solicitudACrear);
       this.myForm.reset();
     }
-  }
+  } 
 }

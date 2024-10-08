@@ -1,5 +1,8 @@
 import { Routes } from '@angular/router';
-import { PaginaInicioComponent } from './pages/home-page/home-page/pagina-inicio.component';
+import { PaginaInicioComponent } from './pages/pagina-inicio/pagina-inicio.component';
+import { PaginaSolicitudesComponent } from './pages/pagina-solicitudes/pagina-solicitudes/pagina-solicitudes.component';
+import { SolicitudNuevaComponent } from './components/solicitud-nueva/solicitud-nueva.component';
+import { SolicitudListadoComponent } from './components/solicitud-listado/solicitud-listado.component';
 
 export const routes: Routes = [
     {
@@ -7,33 +10,23 @@ export const routes: Routes = [
         component: PaginaInicioComponent,
       },
       {
-        path: 'books', // => localhost:3000/books
-        // Mejora en performance: el código de este componente ya no se incluye en el main.js sino en un fichero JS aparte (chunk)
-        loadComponent: () => import('./pages/books-page/pagina-solicitudes.component').then((module) => module.BooksPageComponent),
-        canActivate: [adminGuard],
-        /*resolve: {
-          collections: bookCollectionsResolver,
-        },*/
-        children: [
+        path: 'solicitudes', // => localhost:3000/solicitudes
+        component: PaginaSolicitudesComponent,
+       },
+       {children: [
+         {
+            path: '',  // => localhost:3000/solicitudes/
+            pathMatch: 'full', // pero aquí le decimos que no añada '/'  => localhost:3000/solicitudes
+            redirectTo: 'solicitud-listado',
+          },          
           {
-            path: '',  // => localhost:3000/books/
-            pathMatch: 'full', // pero aquí le decimos que no añada '/'  => localhost:3000/books
-            redirectTo: 'collection-list',
+            path: 'solicitud-nueva', // => localhost:3000/books/new-book
+            component: SolicitudNuevaComponent, 
+            
           },
           {
-            path: 'new-collection',  // => localhost:3000/books/new-collection
-            component: NewMediaCollectionComponent,
-          },
-          {
-            path: 'new-book', // => localhost:3000/books/new-book
-            component: NewBookComponent,
-            /*resolve: {
-              collections: bookCollectionsResolver,
-            }*/
-          },
-          {
-            path: 'collection-list', // => localhost:3000/books/collection-list
-            component: CollectionListComponent,
+            path: 'solicitud-listado', // => localhost:3000/books/collection-list
+            component: SolicitudListadoComponent, 
           },
         ],
         //component: BooksPageComponent,

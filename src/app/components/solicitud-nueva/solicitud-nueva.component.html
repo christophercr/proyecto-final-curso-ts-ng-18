@@ -3,23 +3,16 @@
 <form [formGroup]="myForm" novalidate>
   <ul>
     <li>
-      <input [formControl]="myForm.controls.nombre" type="text" placeholder="nombre" />
-      <input [formControl]="myForm.controls.author" type="text" placeholder="Author" />
-    </li>
+      <input [formControl]="myForm.controls.nombre" type="text" placeholder="Nombre" />
+      <input [formControl]="myForm.controls.email" type="text" placeholder="Email" />
+      <input [formControl]="myForm.controls.edad" type="text" placeholder="Edad" />
+    </li>    
     <li>
-      <select [formControl]="myForm.controls.genre">
-        @for (genre of genres; track genre) {
-          <option [value]="genre">{{ genre }}</option>
-        }
-      </select>
-      <input [formControl]="myForm.controls.numberOfPages" type="number" placeholder="Pages" />
-    </li>
-    <li>
-      <input [formControl]="myForm.controls.pictureLocation" type="url" title="Picture" placeholder="Picture URL" />
-    </li>
-    <li>
-      <textarea [formControl]="myForm.controls.description" placeholder="Description"></textarea>
-    </li>
+      <input [formControl]="myForm.controls.anyosExperiencia" type="text" title="Años de Experiencia" placeholder="Años de Experiencia" />
+      <input [formControl]="myForm.controls.puestoSolicitud" type="text" title="Puesto de Solicitud" placeholder="Puesto de Solicitud" />
+      <input [formControl]="myForm.controls.fechaSolicitud" type="text" title="Fecha de Solicitud" placeholder="Fecha de Solicitud" />
+      <input [formControl]="myForm.controls.estadoSolicitud" type="textr" title="Estado de Solicitud" placeholder="Estado de Solicitud" />
+    </li>    
   </ul>
 
   <div>Form errors (all fields): {{ myForm.errors | json }}</div>
@@ -28,3 +21,4 @@
 
   <button type="button" (click)="crearSolicitud()">Create</button>
 </form>
+
