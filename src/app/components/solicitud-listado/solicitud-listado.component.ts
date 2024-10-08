@@ -11,6 +11,10 @@ import { Solicitud } from '../../models/solicitud.model';
 export class SolicitudListadoComponent {
   @Input()
   public solicitudes: Solicitud[] = [];  
+  
+  
+  
+
 }
 
 

@@ -2,11 +2,11 @@ import { Component } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 
 @Component({
-  selector: 'app-solicitud',
+  selector: 'app-solicitud-nueva',
   standalone: true,
   imports: [],
-  templateUrl: './solicitud.component.html',
-  styleUrl: './solicitud.component.css'
+  templateUrl: './solicitud-nueva.component.html',
+  styleUrl: './solicitud-nueva.component.css'
 })
 export class SolicitudComponent {
     myForm = new FormGroup({

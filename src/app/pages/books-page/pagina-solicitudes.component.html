@@ -1,0 +1,14 @@
+<h2>Lista de Solicitudes</h2>
+<ul class="media-manager-options">
+  <li class="option">
+    <div>
+      <a (click)="changeView('listado-solicitudes')">Listado de solicitudes</a>
+    </div>
+  </li>  
+  <li class="option">
+    <div>
+      <a (click)="changeView('new-book')">New Book</a>
+    </div>
+  </li></ul>
+
+<router-outlet (activate)="onRouteActivated($event)"></router-outlet>
