@@ -4,19 +4,19 @@
       "nombre": "Benjamin Button",
       "email": "benjamin@email.com",
       "edad": "12/01/1993",
-      "anyos_experiencia": 3,
-      "puesto_solicitado": "Developer",
-      "fecha_solicitud": 1727875370042,
-      "estado_solicitud": "waiting"
+      "anyosExperiencia": 3,
+      "puestoSolicitud": "Developer",
+      "fechaSolicitud": 1727875370042,
+      "estadoSolicitud": "waiting"
     },
     {
       "nombre": "Ana Julia",
       "email": "ana@email.com",
       "edad": "05/07/1987",
-      "anyos_experiencia": 7,
-      "puesto_solicitado": "Product Owner",
-      "fecha_solicitud": 1727717157225,
-      "estado_solicitud": "approved"
+      "anyosExperiencia": 7,
+      "puestoSolicitud": "Product Owner",
+      "fechaSolicitud": 1727717157225,
+      "estadoSolicitud": "approved"
     }
   ]
 }

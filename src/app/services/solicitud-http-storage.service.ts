@@ -15,8 +15,7 @@ export class MediaHttpStorageService implements MediaStorageService {
   private readonly _http = inject(HttpClient);
 
   private readonly _apiUrls: Record<string, string> = {
-    'books': environment.booksApiUrl,
-    'movies': environment.moviesApiUrl,
+    'solicitudes': environment.solicitudesApiUrl,    
   };
 
   constructor() {

@@ -4,29 +4,29 @@ export class Solicitud {
   nombre: string;
   email: string;
   edad: string;
-  anyos_experiencia: string;    
-  puesto_solicitado: string;
-  fecha_solicitud: number;
-  estado_solicitud: string;
+  anyosExperiencia: string;    
+  puestoSolicitado: string;
+  fechaSolicitud: number;
+  estadoSolicitud: string;
   _identifier: string;
 
   constructor(
     nombre: string,
     email: string,
     edad: string,
-    anyos_experiencia: string,    
-    puesto_solicitado: string,
-    fecha_solicitud: number,
-    estado_solicitud: string,
+    anyosExperiencia: string,    
+    puestoSolicitado: string,
+    fechaSolicitud: number,
+    estadoSolicitud: string,
     identifier?: string,
   ) {
     this.nombre = nombre;
     this.email = email;
     this.edad = edad;
-    this.anyos_experiencia= anyos_experiencia;
-    this.puesto_solicitado = puesto_solicitado;
-    this.fecha_solicitud = fecha_solicitud;
-    this.estado_solicitud = estado_solicitud;
+    this.anyosExperiencia= anyosExperiencia;
+    this.puestoSolicitado = puestoSolicitado;
+    this.fechaSolicitud = fechaSolicitud;
+    this.estadoSolicitud = estadoSolicitud;
     if (identifier) {
       this._identifier = identifier;
     } else {
