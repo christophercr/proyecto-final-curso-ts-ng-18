@@ -1,28 +1,26 @@
-import { Component, inject } from '@angular/core';
+import { Component, EventEmitter, inject, Input, Output } from '@angular/core';
 import { Solicitud } from '../../../models/solicitud.model';
-import {
-  AbstractControl,
-  FormControl,
-  FormGroup,
-  ReactiveFormsModule,
-  ValidationErrors,
-  ValidatorFn,
-  Validators,
-} from '@angular/forms';
+import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
+import { JsonPipe } from '@angular/common';
+import { edadValida, FormSolicitud } from '../../../models/form-solicitud.model';
 import { Persona } from '../../../models/persona.model';
 import { SolicitudService } from '../../../services/solicitud.service';
-import { JsonPipe } from '@angular/common';
-import { NgIf } from '@angular/common';
 
 @Component({
-  selector: 'app-alta-solicitud',
+  selector: 'app-modificar-solicitud',
   standalone: true,
   imports: [ReactiveFormsModule, JsonPipe],
-  templateUrl: './alta-solicitud.component.html',
-  styleUrl: './alta-solicitud.component.css',
+  templateUrl: './modificar-solicitud.component.html',
+  styleUrl: './modificar-solicitud.component.css'
 })
-export class AltaSolicitudComponent {
+export class ModificarSolicitudComponent implements FormSolicitud{
   private _solicitudService = inject(SolicitudService);
+
+  @Input()
+  solicitud?:Solicitud;
+  
+  @Output()
+  modifyed: EventEmitter<Solicitud> = new EventEmitter<Solicitud>();
 
   myForm = new FormGroup({
     nombreCompleto: new FormControl('', [
@@ -32,7 +30,7 @@ export class AltaSolicitudComponent {
     email: new FormControl('', [Validators.required, Validators.email]),
     fechaNacimiento: new FormControl(new Date(), [
       Validators.required,
-      this.edadValida(),
+      edadValida(),
     ]),
     aniosExperiencia: new FormControl('', [
       Validators.required,
@@ -62,17 +60,9 @@ export class AltaSolicitudComponent {
         rawValue.aniosExperiencia
       );
 
-      this._solicitudService.crearSolicitud(solicitudACrear);
+      this._solicitudService.modificarSolicitud(solicitudACrear);
       this._solicitudService.consultarSolicitudes();
     }
   }
 
-  private edadValida(): ValidatorFn {
-    return (control: AbstractControl): ValidationErrors | null => {
-      const rawValue = control.getRawValue();
-      const edad: number = new Date().getFullYear() - rawValue.getFullYear();
-
-      return edad > 17 && edad < 65 ? { passwordStrength: true } : null;
-    };
-  }
 }

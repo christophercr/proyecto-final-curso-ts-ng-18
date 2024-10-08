@@ -1,21 +1,28 @@
 @if(solicitudes.length > 0){
-    <select name="orden" id="orden" (change)="ordenar($event)">
-        <option value="Nombre">Nombre</option>
-        <option value="Estado">Estado Solicitud</option>
-        <option value="Puesto">Puesto</option>
-    </select>
     <table>
         <caption>Listado de Solicitudes</caption>
-        <thead>
+        <thead id="cabecera-listado">
             <tr>
-                <th>Nombre Completo</th>
+                <th>
+                    <div class="column-sort">
+                        Nombre Completo<img class="sorter" src="sort-arrows.png" (click)="ordenar('Nombre')"/>
+                    </div>
+                </th>
                 <th>Email</th>
                 <th>Edad</th>
                 <th>Años de Exp.</th>
-                <th>Puesto Solicitado</th>
+                <th>
+                    <div class="column-sort">
+                        Puesto<img class="sorter" src="sort-arrows.png" (click)="ordenar('Puesto')"/>
+                    </div>
+                </th>
                 <th>F. Solicitud</th>
-                <th>Estado Solicitud</th>
+                <th>
+                    <div class="column-sort">
+                        Estado Solicitud<img class="sorter" src="sort-arrows.png" (click)="ordenar('Estado')"/>
+                    </div>
                 <th>Eliminar Solicitud</th>
+                <th>Acciones</th>
             </tr>
         </thead>
         <tbody>
@@ -23,13 +30,18 @@
                 <tr>
                     <td>{{solicitud.persona.nombreCompleto}}</td>
                     <td>{{solicitud.persona.email}}</td>
-                    <td>{{solicitud.persona.fechaNacimiento | edadDesdeFechaNacimiento}}</td>
-                    <td>{{solicitud.aniosExperiencia}}</td>
+                    <td class="center-text">{{solicitud.persona.fechaNacimiento | edadDesdeFechaNacimiento}}</td>
+                    <td class="center-text">{{solicitud.aniosExperiencia}}</td>
                     <td>{{solicitud.puestoSolicitado}}</td>
                     <td>{{solicitud.fechaSolicitud | date:'dd/MM/yyyy'}}</td>
                     <td>{{solicitud.estadoSolicitud}}</td>
                     <td>
-                        <button type="button" (click)="borrarSolicitud(solicitud.id)">X</button>
+                        <a (click)="borrarSolicitud(solicitud.id)">
+                            <mat-icon aria-hidden="false" aria-label="Modificar Solicitud" fontIcon="delete"></mat-icon>
+                        </a>
+                    </td>
+                    <td>
+                        <mat-icon [routerLink]="'/modificar-solicitud'" aria-hidden="false" aria-label="Modificar Solicitud" fontIcon="edit"></mat-icon>
                     </td>
                 </tr>
             }

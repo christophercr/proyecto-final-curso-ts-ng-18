@@ -1,13 +1,14 @@
 import { Component, EventEmitter, inject, Input, Output } from '@angular/core';
 import { Solicitud } from '../../models/solicitud.model';
 import { EdadDesdeFechaNacimientoPipe } from '../../pipes/edad-desde-fecha-nacimiento.pipe';
-import { RouterOutlet } from '@angular/router';
+import { RouterOutlet, RouterLink } from '@angular/router';
 import { DatePipe } from '@angular/common';
+import {MatIconModule} from '@angular/material/icon';
 
 @Component({
   selector: 'app-listado-solicitudes',
   standalone: true,
-  imports: [EdadDesdeFechaNacimientoPipe, RouterOutlet, DatePipe ],
+  imports: [EdadDesdeFechaNacimientoPipe, RouterOutlet, RouterLink, DatePipe, MatIconModule ],
   templateUrl: './listado-solicitudes.component.html',
   styleUrl: './listado-solicitudes.component.css'
 })
@@ -24,7 +25,7 @@ export class ListadoSolicitudesComponent {
   }
 
   ordenar(event:any):void{
-    switch(event.target.value) { 
+    switch(event) { 
       case 'Nombre': { 
         this.solicitudes.sort(function (a, b) {
           if (a.persona.nombreCompleto > b.persona.nombreCompleto) { return 1; }

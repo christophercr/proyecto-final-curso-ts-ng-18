@@ -31,7 +31,7 @@ export class SolicitudService implements ISolicitudService<Solicitud>{
     return lastValueFrom(this._solicitudStorageService.getAllItems(this.deserializeCollection));
   } */
 
-  recargarSolicitudes(){
+  recargarSolicitudes():void{
     let solicitud1 = new Solicitud(
       '',
       new Persona('Alberto M.', 'alberto@gmail.com', new Date('1983-04-17')),
@@ -52,7 +52,7 @@ export class SolicitudService implements ISolicitudService<Solicitud>{
     this.listaSolicitudes[1] = solicitud2;
   }
 
-  eliminarSolicitud(solicitudId:string){
+  eliminarSolicitud(solicitudId:string):void{
     if (solicitudId) {
       this._listaSolicitudes = this._listaSolicitudes.filter((solicitud) => {
         return solicitud.id !== solicitudId;
@@ -60,10 +60,14 @@ export class SolicitudService implements ISolicitudService<Solicitud>{
     }
   }
 
-  crearSolicitud(solicitud:Solicitud){
+  crearSolicitud(solicitud:Solicitud):void{
     if (solicitud) {
       this._listaSolicitudes.push(solicitud);
     }
+  }
+
+  modificarSolicitud(solicitudModificada:Solicitud):void{
+    this._listaSolicitudes.map((s, index) => s.id === solicitudModificada.id ? solicitudModificada : s);
   }
   
 }
