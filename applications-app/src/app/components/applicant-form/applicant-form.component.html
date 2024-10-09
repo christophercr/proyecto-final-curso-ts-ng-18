@@ -1,4 +1,4 @@
-<form [formGroup]="applicantForm" (ngSubmit)="onSubmit()" class="mt-1 ml-1">
+<form [formGroup]="applicantForm" class="mt-1 ml-1">
   <p>
     <mat-form-field appearance="fill">
       <mat-label>Nombre y apellidos:</mat-label>
@@ -92,6 +92,5 @@
 </p>
 
   <!-- <button type="submit" [disabled]="applicantForm.invalid">Enviar</button> -->
-  <button type="submit" >Enviar</button>
-  <form action=""></form>
+  <button type="button"(click)="createApplicant()" createApplicant>Enviar</button>
 </form>
