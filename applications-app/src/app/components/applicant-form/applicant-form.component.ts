@@ -42,7 +42,7 @@ export class ApplicantsFormComponent {
   fb = inject(FormBuilder);
 
   applicantForm = this.fb.group({
-    name: ['', Validators.required, Validators.min(2), Validators.max(120)],
+    name: ['', [Validators.required, Validators.min(2), Validators.max(120)]],
     email: ['', [Validators.required, Validators.email]],
     age: ['', [Validators.required, Validators.min(18), Validators.max(120)]],
     yearsExp: [  '', [Validators.required, Validators.min(0), Validators.max(100)],

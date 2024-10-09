@@ -75,7 +75,7 @@
 <mat-form-field>
   <mat-label>Estado de la candidatura</mat-label>
 
-  <mat-select>
+  <mat-select formControlName="status">
 
     @for (status of statuses; track status) {
       <mat-option  [value]="status">{{ status }}</mat-option >
@@ -91,6 +91,7 @@
 </mat-form-field>
 </p>
 
-  <button type="submit" [disabled]="applicantForm.invalid">Enviar</button>
+  <!-- <button type="submit" [disabled]="applicantForm.invalid">Enviar</button> -->
+  <button type="submit" >Enviar</button>
   <form action=""></form>
 </form>
