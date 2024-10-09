@@ -28,8 +28,8 @@
               <input type="date" id="input-fecha-nac" [formControl]="myForm.controls.fechaNacimiento">
               @if(myForm.controls.fechaNacimiento.dirty){
                 @if(myForm.controls.fechaNacimiento.hasError('required')){ <span class="mensaje-error">Este campo es obligatorio</span> }
-                @if(myForm.controls.fechaNacimiento.hasError('email')){ <span class="mensaje-error">El formato del email no es válido</span> }
-              }
+                @if(myForm.controls.fechaNacimiento.hasError('edadValida')){ <span class="mensaje-error">La edad debe ser mayor de 17 y menor de 65</span> }
+              }{{myForm.controls.fechaNacimiento.errors}}
             </div>
           </div>
           <div class="input-group">
@@ -39,7 +39,7 @@
               @if(myForm.controls.aniosExperiencia.dirty){
                 @if(myForm.controls.aniosExperiencia.hasError('required')){ <span class="mensaje-error">Este campo es obligatorio</span> }
                 @if(myForm.controls.aniosExperiencia.hasError('pattern')){ <span class="mensaje-error">Tiene que ser un número</span> }
-              }{{myForm.controls.aniosExperiencia.errors | json}}
+              }
             </div>
           </div>
         </div>
@@ -51,6 +51,9 @@
                 <label> <input type="radio" id="Diseñador" value="Diseñador" formControlName="puestoSolicitado"> Diseñador </label>
                 <label> <input type="radio" id="Analista" value="Analista" formControlName="puestoSolicitado"> Analista </label>
                 <label> <input type="radio" id="JefeProyecto"  value="JefeProyecto" formControlName="puestoSolicitado"> Jefe de Proyecto </label>
+                @if(myForm.controls.puestoSolicitado.dirty){
+                  @if(myForm.controls.puestoSolicitado.hasError('required')){ <span class="mensaje-error">Este campo es obligatorio</span> }
+                }
             </div>
           </fieldset>
         </div>

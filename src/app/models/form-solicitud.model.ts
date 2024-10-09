@@ -1,13 +1,14 @@
-import type { Observable } from 'rxjs';
-import { InjectionToken } from '@angular/core';
-import { Solicitud } from './solicitud.model';
 import { AbstractControl, ValidationErrors, ValidatorFn } from '@angular/forms';
+import { EdadDesdeFechaNacimientoPipe } from '../pipes/edad-desde-fecha-nacimiento.pipe';
 
 export function edadValida(): ValidatorFn {
   return (control: AbstractControl): ValidationErrors | null => {
     const rawValue = control.getRawValue();
-    const edad: number = new Date().getFullYear() - rawValue.getFullYear();
-    return edad > 17 && edad < 65 ? { passwordStrength: true } : null;
+    const rawValueTime = Date.parse(rawValue);
+    const rawValueDate = new Date(rawValueTime);
+    
+    const edad: number = new EdadDesdeFechaNacimientoPipe().transform(rawValueDate);
+    return edad > 17 && edad < 65 ? { edadValida: true } : null;
   };
 }
 
