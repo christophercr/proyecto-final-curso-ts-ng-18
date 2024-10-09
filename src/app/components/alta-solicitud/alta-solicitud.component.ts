@@ -52,12 +52,16 @@ export class AltaSolicitudComponent implements FormSolicitud {
         rawValue[key] = rawValue[key] === null ? undefined : rawValue[key];
       }
 
+      
+    const rawValueTime = Date.parse(rawValue.fechaNacimiento);
+    const rawValueDate = new Date(rawValueTime);
+
       const solicitudACrear: Solicitud = new Solicitud(
         '',
         new Persona(
           rawValue.nombreCompleto,
           rawValue.email,
-          rawValue.fechaNacimiento
+          rawValueDate
         ),
         rawValue.puestoSolicitado,
         new Date(),
@@ -67,6 +71,8 @@ export class AltaSolicitudComponent implements FormSolicitud {
 
       this._solicitudService.crearSolicitud(solicitudACrear);
       this._solicitudService.consultarSolicitudes();
+
+      this.myForm.reset();
     }
   }
 }
