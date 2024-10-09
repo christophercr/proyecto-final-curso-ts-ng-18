@@ -8,7 +8,11 @@ export function edadValida(): ValidatorFn {
     const rawValueDate = new Date(rawValueTime);
     
     const edad: number = new EdadDesdeFechaNacimientoPipe().transform(rawValueDate);
-    return edad > 17 && edad < 65 ? { edadValida: true } : null;
+    if(edad > 17 && edad < 65){
+      return null;
+    }else{
+      return { edadValida: true };
+    }
   };
 }
 
