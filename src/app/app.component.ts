@@ -2,11 +2,12 @@ import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { SolicitudListadoComponent } from "./components/solicitud-listado/solicitud-listado.component";
 import { SolicitudNuevaComponent } from './components/solicitud-nueva/solicitud-nueva.component';
+import { PaginaInicioComponent } from './pages/pagina-inicio/pagina-inicio.component';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, SolicitudListadoComponent, SolicitudNuevaComponent],
+  imports: [RouterOutlet, SolicitudListadoComponent, SolicitudNuevaComponent, PaginaInicioComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })

@@ -38,7 +38,7 @@ export class SolicitudNuevaComponent {
         rawValue.email === null ? undefined : rawValue.description,
         rawValue.edad,
         rawValue.anyosExperiencia,
-        rawValue.puestoSolicitado,
+        rawValue.puestoSolicitud,
         rawValue.fechaSolicitud, 
         rawValue.estadoSolicitud,       
       );

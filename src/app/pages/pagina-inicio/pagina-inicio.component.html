@@ -3,9 +3,11 @@
 <ul class="media-type-list">
   <li class="media-type-item" >
     <!-- IMPORTANTE: para mejor UX una <a> es más usable, permite abrir la pantalla en otra pestaña -->
-    <a [routerLink]="'/solicitudes'">Listado de Solicitudes</a>
+    <a [routerLink]="'/solicitud-listado'">Listado de Solicitudes</a>
   </li>  
   <li class="media-type-item">
-    <div>Nueva Solicitud</div>
+    <a [routerLink]="'/solicitud-nueva'">Nueva Solicitud</a>
   </li>
 </ul>
+
+<router-outlet>
