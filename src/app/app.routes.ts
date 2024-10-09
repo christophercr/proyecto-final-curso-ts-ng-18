@@ -18,7 +18,7 @@ export const routes: Routes = [
           component: AltaSolicitudComponent
         },
         {
-          path: 'modificar-solicitud',
+          path: 'modificar-solicitud/:id',
           component: ModificarSolicitudComponent
         }
       ]

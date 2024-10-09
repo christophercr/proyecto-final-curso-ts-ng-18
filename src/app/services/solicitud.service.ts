@@ -69,5 +69,14 @@ export class SolicitudService implements ISolicitudService<Solicitud>{
   modificarSolicitud(solicitudModificada:Solicitud):void{
     this._listaSolicitudes.map((s, index) => s.id === solicitudModificada.id ? solicitudModificada : s);
   }
+
+  consultarSolicitud(solicitudId:string):Solicitud | undefined{
+    if (solicitudId) {
+      return this._listaSolicitudes.find((solicitud) => {
+        return solicitud.id === solicitudId;
+      });
+    }
+    return;
+  }
   
 }
