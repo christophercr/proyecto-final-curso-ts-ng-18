@@ -5,7 +5,7 @@ export class Solicitud {
   email: string;
   edad: string;
   anyosExperiencia: string;    
-  puestoSolicitado: string;
+  puestoSolicitud: string;
   fechaSolicitud: number;
   estadoSolicitud: string;
   _identifier: string;
@@ -15,7 +15,7 @@ export class Solicitud {
     email: string,
     edad: string,
     anyosExperiencia: string,    
-    puestoSolicitado: string,
+    puestoSolicitud: string,
     fechaSolicitud: number,
     estadoSolicitud: string,
     identifier?: string,
@@ -24,7 +24,7 @@ export class Solicitud {
     this.email = email;
     this.edad = edad;
     this.anyosExperiencia= anyosExperiencia;
-    this.puestoSolicitado = puestoSolicitado;
+    this.puestoSolicitud = puestoSolicitud;
     this.fechaSolicitud = fechaSolicitud;
     this.estadoSolicitud = estadoSolicitud;
     if (identifier) {
