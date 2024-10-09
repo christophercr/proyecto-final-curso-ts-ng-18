@@ -5,6 +5,7 @@ import { JsonPipe } from '@angular/common';
 import { edadValida, FormSolicitud } from '../../../models/form-solicitud.model';
 import { Persona } from '../../../models/persona.model';
 import { SolicitudService } from '../../../services/solicitud.service';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-modificar-solicitud',
@@ -15,9 +16,10 @@ import { SolicitudService } from '../../../services/solicitud.service';
 })
 export class ModificarSolicitudComponent implements FormSolicitud{
   private _solicitudService = inject(SolicitudService);
+  private route: ActivatedRoute = inject(ActivatedRoute);
+  private solicitudParaModificar?:string|null;
 
-  @Input()
-  solicitud?:Solicitud;
+  private solicitud?:Solicitud;
   
   @Output()
   modifyed: EventEmitter<Solicitud> = new EventEmitter<Solicitud>();
@@ -38,6 +40,22 @@ export class ModificarSolicitudComponent implements FormSolicitud{
     ]),
     puestoSolicitado: new FormControl('', Validators.required),
   });
+
+  ngOnInit(): void {
+    this.solicitudParaModificar = this.route.snapshot.paramMap.get('id');
+    if(this.solicitudParaModificar != null){
+      this.cargarSolicitudEnFomulario(this.solicitudParaModificar);
+    }
+  }
+
+  cargarSolicitudEnFomulario(solicitudParaModificar:string){
+    let solicitud = this._solicitudService.consultarSolicitud(solicitudParaModificar);
+    if(solicitud != undefined){
+      this.myForm.controls.nombreCompleto.setValue(solicitud.persona.nombreCompleto);
+      this.myForm.controls.email.setValue(solicitud.persona.email);
+      this.myForm.controls.fechaNacimiento.setValue(solicitud.persona.fechaNacimiento);
+    }
+  }
 
   crearSolicitud(): void {
     if (this.myForm.valid) {
