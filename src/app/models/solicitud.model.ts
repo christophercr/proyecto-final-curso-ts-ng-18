@@ -1,5 +1,6 @@
 import { FormControl, Validators } from '@angular/forms';
 
+
 export class Solicitud {
   nombre: string;
   email: string;

@@ -1,14 +1,7 @@
-<h2>Coleccion de solicitudes</h2>
-<ul class="media-manager-options">
-  <li class="option">
-    <div>
-      <a (click)="changeView('solicitud-listado')">Solicitudes</a>
-    </div>
-  </li>
-  <li class="option">
-    <div>
-      <a (click)="changeView('solicitud-nueva')">Nueva Solicitud</a>
-    </div>
-  </li>  
->
-<router-outlet (activate)="onRouteActivated($event)"></router-outlet>
+ <article>   
+    <app-solicitud-listado [solicitudes]="coleccionSolicitudes">          
+    </app-solicitud-listado>
+</article>
+  
+  
+  

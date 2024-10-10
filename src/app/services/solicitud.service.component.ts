@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Observable } from 'rxjs';
+import { Solicitud } from '../models/solicitud.model';
 
 @Component({
   selector: 'app-solicitud.service',
@@ -10,34 +11,42 @@ import { Observable } from 'rxjs';
 })
 export class SolicitudService {
   reloadSolicitudColecciones() { }
-    
-   /*  return this.getMediaCollectionIdentifiersList().pipe(
-      delay(1000), // simular una respuesta lenta de nuestro servidor de API
-      switchMap((keys) => {
-        const observablesArray$ = keys.map((item) => {
-          //console.log(" switchmap Quiero ver el libro nuevo");
-          return this.loadMediaCollection(item);
-        });
 
-        return forkJoin(observablesArray$);
-      }),
-      map((collections) => {
-        this._bookCollections.clear(); // clear the current state
-        //console.log("Map Quiero ver el libro nuevo");
-        collections.forEach((collection) => {
-          this._bookCollections.set(collection.identifier, collection);
-        });
-        const arrayColecciones = Array.from(this._bookCollections.entries());
-        const nuevoMapa = new Map(arrayColecciones);
-        this._bookCollectionsSubject$.next(nuevoMapa);
-        this._bookCollectionsSignal.set(nuevoMapa); */
-        // en mundo observables
-        //this._bookCollectionsSubject$.next(new Map(this._bookCollections)); // genero un nuevo mapa para cambiar la referencia de memória y lo emito
-        // en mundo signals
-        //this._bookCollectionsSignal.set(new Map(this._bookCollections)); // genero un nuevo mapa para cambiar la referencia de memória y lo emito
+  private _listaSolicitudes : Solicitud[] = [];
 
- //       return;
-  //    }),
-  //  );
- // }
+  public get listaSolicitudes():Solicitud[]{
+    return this._listaSolicitudes;
+  }
+
+  constructor(){}
+
+  consultarSolicitudes(): Solicitud[] {
+    return this.listaSolicitudes;
+  }
+
+  recargarSolicitudes():void{
+    let nuevaSolicitud1 = new Solicitud('Sergio','sergio@gmail.com', '34', '7', 'Programador', 12, 'En Espera' );
+    let nuevaSolicitud2 = new Solicitud('Juan','juan@gmail.com', '22', '7', 'AnalistaProgramador', 12, 'En Espera' );
+    let nuevaSolicitud3 = new Solicitud('Ana Julia','anajulian@gmail.com', '34', '7', 'Programador', 12, 'En Espera' );
+
+    this.listaSolicitudes[0] = nuevaSolicitud1;
+    this.listaSolicitudes[1] = nuevaSolicitud2;
+    this.listaSolicitudes[2] = nuevaSolicitud3;
+  }
+   
+  crearSolicitud(solicitud:Solicitud):void{
+    if (solicitud) {
+      this._listaSolicitudes.push(solicitud);
+    }
+  }
+  
+  consultarSolicitud(solicitudId:string):Solicitud | undefined{
+    if (solicitudId) {
+      return this._listaSolicitudes.find((solicitud) => {
+        return solicitud._identifier === solicitudId;
+      });
+    }
+    return;
+  }
+  
  }
