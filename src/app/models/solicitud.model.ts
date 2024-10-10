@@ -3,7 +3,7 @@ import { Persona } from './persona.model';
 import { Expose } from 'class-transformer';
 
 export class Solicitud {
-    private _id?: string;
+    private _id: string;
         @Expose() get id(): string | undefined {return this._id;}
         set id(id : string) {this._id = id}
 

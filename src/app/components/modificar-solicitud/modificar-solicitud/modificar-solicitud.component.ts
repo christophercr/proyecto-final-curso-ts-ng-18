@@ -1,7 +1,7 @@
 import { Component, EventEmitter, inject, Input, Output } from '@angular/core';
 import { Solicitud } from '../../../models/solicitud.model';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
-import { JsonPipe } from '@angular/common';
+import { DatePipe, JsonPipe } from '@angular/common';
 import { edadValida, FormSolicitud } from '../../../models/form-solicitud.model';
 import { Persona } from '../../../models/persona.model';
 import { SolicitudService } from '../../../services/solicitud.service';
@@ -10,7 +10,7 @@ import { ActivatedRoute } from '@angular/router';
 @Component({
   selector: 'app-modificar-solicitud',
   standalone: true,
-  imports: [ReactiveFormsModule, JsonPipe],
+  imports: [ReactiveFormsModule, JsonPipe, DatePipe],
   templateUrl: './modificar-solicitud.component.html',
   styleUrl: './modificar-solicitud.component.css'
 })
@@ -19,7 +19,7 @@ export class ModificarSolicitudComponent implements FormSolicitud{
   private route: ActivatedRoute = inject(ActivatedRoute);
   private solicitudParaModificar?:string|null;
 
-  private solicitud?:Solicitud;
+  public solicitud?:Solicitud;
   
   @Output()
   modifyed: EventEmitter<Solicitud> = new EventEmitter<Solicitud>();
@@ -34,7 +34,7 @@ export class ModificarSolicitudComponent implements FormSolicitud{
       Validators.required,
       edadValida(),
     ]),
-    aniosExperiencia: new FormControl('', [
+    aniosExperiencia: new FormControl(0, [
       Validators.required,
       Validators.pattern(/^[0-9]+$/),
     ]),
@@ -49,15 +49,18 @@ export class ModificarSolicitudComponent implements FormSolicitud{
   }
 
   cargarSolicitudEnFomulario(solicitudParaModificar:string){
-    let solicitud = this._solicitudService.consultarSolicitud(solicitudParaModificar);
-    if(solicitud != undefined){
-      this.myForm.controls.nombreCompleto.setValue(solicitud.persona.nombreCompleto);
-      this.myForm.controls.email.setValue(solicitud.persona.email);
-      this.myForm.controls.fechaNacimiento.setValue(solicitud.persona.fechaNacimiento);
+    this.solicitud = this._solicitudService.consultarSolicitud(solicitudParaModificar);
+    if(this.solicitud != null){
+      this.myForm.controls.nombreCompleto.setValue(this.solicitud.persona.nombreCompleto);
+      this.myForm.controls.email.setValue(this.solicitud.persona.email);
+      this.myForm.controls.fechaNacimiento.setValue(this.solicitud.persona.fechaNacimiento);
+      this.myForm.controls.aniosExperiencia.setValue(this.solicitud.aniosExperiencia);
+      this.myForm.controls.puestoSolicitado.setValue(this.solicitud.puestoSolicitado);
+
     }
   }
 
-  crearSolicitud(): void {
+  grabarSolicitud(): void {
     if (this.myForm.valid) {
       let rawValue: any = this.myForm.getRawValue();
 
