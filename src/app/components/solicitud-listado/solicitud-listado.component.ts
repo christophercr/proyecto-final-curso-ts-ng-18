@@ -12,6 +12,12 @@ export class SolicitudListadoComponent {
   @Input()
   public solicitudes: Solicitud[] = [];  
   
+  @Output()
+  solicitudBorrada = new EventEmitter<string>();
+  
+  borrarSolicitud(id: string | undefined): void {
+    this.solicitudBorrada.emit(id);
+  }
   
   
 
