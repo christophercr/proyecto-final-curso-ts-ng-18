@@ -36,7 +36,7 @@ export class SolicitudService implements ISolicitudService<Solicitud>{
       '',
       new Persona('Alberto M.', 'alberto@gmail.com', new Date('1983-04-17')),
       'Programador',
-      new Date(2024, 9, 24), 
+      new Date(1993, 3, 24), 
       'En espera',
       7
     );
@@ -44,7 +44,7 @@ export class SolicitudService implements ISolicitudService<Solicitud>{
       '',
       new Persona('Tamara C.', 'tamara@gmail.com', new Date('1982-11-21')),
       'Analista',
-      new Date(2024, 9, 17), 
+      new Date(1987, 9, 17), 
       'Aceptada',
       4
     );

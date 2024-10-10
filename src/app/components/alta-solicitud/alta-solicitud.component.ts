@@ -44,7 +44,7 @@ export class AltaSolicitudComponent implements FormSolicitud {
     puestoSolicitado: new FormControl('', Validators.required),
   });
 
-  crearSolicitud(): void {
+  grabarSolicitud(): void {
     if (this.myForm.valid) {
       let rawValue: any = this.myForm.getRawValue();
 

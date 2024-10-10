@@ -1,7 +1,7 @@
 import { Component, EventEmitter, inject, Input, Output } from '@angular/core';
 import { Solicitud } from '../../models/solicitud.model';
 import { EdadDesdeFechaNacimientoPipe } from '../../pipes/edad-desde-fecha-nacimiento.pipe';
-import { RouterOutlet, RouterLink } from '@angular/router';
+import { RouterOutlet, RouterLink, Router } from '@angular/router';
 import { DatePipe } from '@angular/common';
 import {MatIconModule} from '@angular/material/icon';
 
@@ -13,6 +13,7 @@ import {MatIconModule} from '@angular/material/icon';
   styleUrl: './listado-solicitudes.component.css'
 })
 export class ListadoSolicitudesComponent {
+  private router: Router = inject(Router);
 
   @Input()
   solicitudes: Solicitud[] = [];
@@ -52,5 +53,8 @@ export class ListadoSolicitudesComponent {
       }
    } 
   }
-  
+
+/*   abrirModificacion(id:string | undefined){
+    this.router.navigateByUrl('modificar-solicitud/'+id);
+  }   */
 }

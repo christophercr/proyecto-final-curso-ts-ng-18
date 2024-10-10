@@ -17,5 +17,5 @@ export function edadValida(): ValidatorFn {
 }
 
 export interface FormSolicitud {
-  crearSolicitud(): void;
+  grabarSolicitud(): void;
 } 
