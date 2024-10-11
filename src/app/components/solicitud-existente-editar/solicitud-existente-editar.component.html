@@ -1,0 +1,38 @@
+<div class="container solicitud-editar">
+  <h1>Editar Solicitud</h1>
+
+  <form (ngSubmit)="guardarSolicitud()" class="form-container">
+    <div class="form-group">
+      <label for="nombreCompleto">Nombre Completo:</label>
+      <input type="text" id="nombreCompleto" [(ngModel)]="solicitud.nombreCompleto" name="nombreCompleto" required />
+    </div>
+    <div class="form-group">
+      <label for="email">Email:</label>
+      <input type="email" id="email" [(ngModel)]="solicitud.email" name="email" required />
+    </div>
+    <div class="form-group">
+      <label for="fechaNacimiento">Fecha de Nacimiento:</label>
+      <input type="date" id="fechaNacimiento" [(ngModel)]="solicitud.fechaNacimiento" name="fechaNacimiento" required />
+    </div>
+    <div class="form-group">
+      <label for="aniosExperiencia">Años de Experiencia:</label>
+      <input type="number" id="aniosExperiencia" [(ngModel)]="solicitud.aniosExperiencia" name="aniosExperiencia" required min="0" />
+    </div>
+    <div class="form-group">
+      <label for="puestoSolicitado">Puesto Solicitado:</label>
+      <input type="text" id="puestoSolicitado" [(ngModel)]="solicitud.puestoSolicitado" name="puestoSolicitado" required />
+    </div>
+    <div class="form-group">
+      <label for="estado">Estado:</label>
+      <select id="estado" [(ngModel)]="solicitud.estado" name="estado" required>
+        <option value="en espera">En espera</option>
+        <option value="aprobado">Aprobado</option>
+        <option value="rechazado">Rechazado</option>
+      </select>
+    </div>
+    <div class="form-button">
+      <button type="submit">Guardar</button>
+      <button type="button" (click)="cancelar()">Cancelar</button>
+    </div>
+  </form>
+</div>
