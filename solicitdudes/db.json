@@ -1,0 +1,103 @@
+{
+  "solicitudes": [
+    {
+      "nombre": "David Bartolome",
+      "email": "davidof1977@hotmail.com",
+      "fechaNacimiento": "18-07-1977",
+      "experiencia": 20,
+      "puesto": "Software Architect",
+      "id": "5c4e",
+      "fecha": "2024-10-03T15:21:17.635Z",
+      "estado": "aprobado",
+      "edad": 47
+    },
+    {
+      "nombre": "Laura Ramos",
+      "email": "laurita@hotmail.com",
+      "fechaNacimiento": "18-07-1960",
+      "experiencia": 25,
+      "puesto": "Programador",
+      "id": "eae1",
+      "fecha": "2024-10-03T15:05:17.203Z",
+      "estado": "en espera",
+      "edad": 64
+    },
+    {
+      "nombre": "sfsf",
+      "email": "davidof1973@hotmail.com",
+      "fechaNacimiento": "18-07-1977",
+      "experiencia": 3,
+      "puesto": "sfdsfds",
+      "id": "e988",
+      "fecha": "2024-10-03T15:22:55.862Z",
+      "estado": "rechazado",
+      "edad": 47
+    },
+    {
+      "nombre": "Laura Ramos",
+      "email": "laurita@hotmail.com",
+      "fechaNacimiento": "18-06-1989",
+      "experiencia": 20,
+      "puesto": "Programador",
+      "id": "189a",
+      "fecha": "2024-10-03T15:36:25.124Z",
+      "estado": "aprobado",
+      "edad": 35
+    },
+    {
+      "nombre": "Pepe",
+      "email": "pepe@dkdskls.es",
+      "fechaNacimiento": "18-07-1977",
+      "experiencia": 2,
+      "puesto": "kkl",
+      "id": "2256",
+      "fecha": "2024-10-03T15:05:58.615Z",
+      "estado": "en espera",
+      "edad": 47
+    },
+    {
+      "nombre": "Diego",
+      "email": "diego@fskffa",
+      "fechaNacimiento": "18-07-1977",
+      "experiencia": 29,
+      "puesto": "Jefe",
+      "id": "e76f",
+      "fecha": "2024-10-04T10:43:38.601Z",
+      "estado": "aprobado",
+      "edad": 47
+    },
+    {
+      "id": "ed66",
+      "nombre": "Juan Lopez",
+      "email": "jlopez@hotmai.com",
+      "fechaNacimiento": "30-01-2000",
+      "experiencia": 1,
+      "puesto": "Practicas",
+      "fecha": "2024-10-03T15:23:49.580Z",
+      "estado": "en espera",
+      "edad": 24
+    },
+    {
+      "id": "29aa",
+      "nombre": "Sergio Lopez",
+      "email": "slopez@gmail.com",
+      "fechaNacimiento": "12-01-2002",
+      "experiencia": 2,
+      "puesto": "Desarrollador",
+      "fecha": "2024-10-03T15:24:32.235Z",
+      "estado": "en espera",
+      "edad": 22
+    },
+    {
+      "id": "a552",
+      "nombre": "Daniel Castiilo",
+      "email": "dcastillo@jsdfks.es",
+      "fechaNacimiento": "18-09-1999",
+      "experiencia": 3,
+      "puesto": "sfs",
+      "fecha": "2024-10-03T15:40:19.847Z",
+      "estado": "en espera",
+      "edad": 25
+    }
+  ]
+}
