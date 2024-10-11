@@ -1,60 +1,72 @@
-import { computed, Injectable, signal, type Signal } from '@angular/core';
-import { BehaviorSubject, delay, forkJoin, map, ReplaySubject, Subject, switchMap, type Observable } from 'rxjs';
+import {
+  inject,
+  Injectable,
+} from '@angular/core';
+import {
+  catchError,
+  lastValueFrom,
+  tap,
+} from 'rxjs';
 import { ApplicantModel } from '../models/applicant.model';
+import { HttpClient } from '@angular/common/http';
+import { instanceToPlain } from 'class-transformer';
 
 @Injectable({
-  providedIn: 'root'// singleton en toda la aplicacion
+  providedIn: 'root', // singleton en toda la aplicacion
 })
 export class ApplicationsService {
-constructor() { }
+  private readonly _http = inject(HttpClient);
 
-/* 
-async createApplicant(applicant: ApplicantModel): Promise<void> {
-
-  TODO: continuar por aquí#########################################################3
-  try {
-    await this.saveBook(book);
-
-  } catch (err) {
-    console.error('Error while saving the new applicant: ', err);
-    // this.displayErrorMessage(`Failed to update the existing book collection called ${existingCollection.name}`); 
-  }
-} */
-
-/* 
-saveBook(
-  collection: Readonly<MediaCollection<T>>,
-  typeOfChange: TypeOfChange = 'create-collection',
-  collectionItemOrId?: T | string,
-  collectionId?: string,
-) {
-  if (!collection) {
-    throw new Error('The list cannot be null or undefined!');
+  constructor() {
+    console.log(`Initializing applicant http storage service`);
   }
 
-  //console.log(`Saving media collection with the following name ${collection.name}`);
-  return lastValueFrom(this._mediaStorageService.saveItem(collection, this.mediaTypeName, typeOfChange, collectionItemOrId, collectionId));
-} */
+  async createApplicant(applicantOrId: ApplicantModel | string): Promise<void> {
+    try {
+      await this.applicantHTTPService(applicantOrId, 'create-applicant');
+    } catch (err) {
+      console.error('Error while saving the new applicant: ', err);
+      // this.displayErrorMessage(`Failed to update the existing book collection called ${existingCollection.name}`);
+    }
+  }
+
+  applicantHTTPService(
+    applicantOrId: ApplicantModel | string,
+    typeOfChange: string
+  ): Promise<void> | undefined | void {
+    if (!applicantOrId) {
+      throw new Error('The applicant or its Id cannot be null or undefined!');
+    }
+    if (typeOfChange === 'create-applicant') {
+      if (!(applicantOrId instanceof ApplicantModel)) {
+        throw new Error('The applicant must be an instance of ApplicantModel!');
+      }
+      const applicant: ApplicantModel = applicantOrId as ApplicantModel;
+      /* 
+      FIXME, conseguir acceder a las propiedades applicantOrId sabiendo que es de tipo ApplicantModel para poder utilizarlas en los logs
+        */
+      const serializedVersion = instanceToPlain(applicant, {
+        excludePrefixes: ['_'],
+      });
+
+      return lastValueFrom(
+        this._http.post<void>('http://localhost:3000/applications', serializedVersion).pipe(
+          tap((value) => {
+            console.log(
+              `Saved the applicant successfully! Saved value: `,
+              value
+            );
+          }),
+          catchError((err) => {
+            console.error(
+              `Failed to save the applicant. Error: ${err}`
+            );
+            throw new Error(err);
+          })
+        )
+      );
+    } // Fin 'create-applicant'
 
 
-
-  /* 
-_aplicant : ApplicantModel = {
-  name : 'Jorge Álvarez',
-email : 'jrgmad@hotmail.com',
-age : 44,
-yearsExp : 2,
-position : 'Developer',
-dateOfApplication : '30/09/2024',
-status : Status.Refused
-}; */
-
-/* _applicants : ApplicantsModel[] = [{
-name : 'Jorge Álvarez',
-email : 'jrgmad@hotmail.com',
-age : 44,
-
-}]; */
-
-  
+  }// Fin applicantHTTPService
 }

@@ -56,7 +56,7 @@ export class ApplicantsFormComponent {
 
   statuses = Object.values(Status);
 
-  createApplicant(): void {
+  sendApplicantForm(): void {
     if (this.applicantForm.valid) {
       /*  const applicant: ApplicantModel = this.applicantForm.value;
       console.log('applicant sent:', applicant);  */
@@ -76,24 +76,10 @@ export class ApplicantsFormComponent {
         rawValue.dateOfApplication,
         rawValue.status
       );
+      this._applicantservice.createApplicant(applicantToCreate).then(() => {
+        this.created.emit(applicantToCreate);
+        this.applicantForm.reset();
+      });
     }
-    /* 
-      this._applicantservice
-        .createApplicant(applicantToCreate)
-        .then(() => {
-          this.created.emit(applicantToCreate);
-          this.applicantForm.reset();
-        });
-    } */
   }
 } // Fin de clase
-
-/*  applicantMod = new ApplicantModel(
-    'Manolo',
-    'manolete@manolete.com',
-    33,
-    4,
-    'Analista',
-    '06/10/2024',
-    Status.Approved,
-  ); */
