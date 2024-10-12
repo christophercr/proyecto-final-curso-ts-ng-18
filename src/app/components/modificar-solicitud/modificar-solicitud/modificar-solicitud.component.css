@@ -1,0 +1,49 @@
+.alta-form {
+    display: flex;
+    flex-direction: column;
+    background-color: lightgoldenrodyellow;
+    border-radius: 3px;
+    padding: 1em;
+}
+
+.row {
+    display: flex;
+    justify-content: center;
+}
+
+.column {
+    display: flex;
+    flex-direction: column;
+    padding: 1em;
+}
+
+.input-group {
+    display: flex;
+}
+
+.input-group>label {
+    margin-right: 1em;
+    padding: .5em 0;
+}
+
+.alta-form input,
+.alta-form select {
+    flex: 6;
+    padding: .5em;
+    margin-bottom: 1em;
+}
+
+.alta-form fieldset {
+    border: 0;
+}
+
+.puestos{
+    display: flex;
+    flex-direction: column;
+}
+
+div.fecha-solicitud{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}

@@ -1,0 +1,27 @@
+/* You can add global styles to this file, and also import other style files */
+
+html,
+body {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.footer {
+    flex: 0;
+    background-color: #fafad2;
+}
+
+.center-text {
+    text-align: center;
+}
+
+.mensaje-error{
+    display: flex;
+    flex-direction: column;
+    color: red;
+    margin: -10px 0px 20px;
+}
+input.ng-dirty.ng-invalid {
+    border: 3px solid red;
+}

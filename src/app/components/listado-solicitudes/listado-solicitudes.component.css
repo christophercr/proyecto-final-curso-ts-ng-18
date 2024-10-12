@@ -1,0 +1,34 @@
+table {
+    border-collapse: collapse;
+}
+
+caption {
+    font-weight: bold;
+    font-size: 24px;
+    text-align: left;
+    color: #333;
+    margin: 20px 0px;
+}
+
+thead{
+    background: lightgoldenrodyellow;
+}
+
+th,
+td {
+    border: 1px solid black;
+    padding: 8px;
+}
+
+.sorter{
+    width: 32px;
+}
+
+.sorter:hover{
+    filter: drop-shadow(3px 3px 2px #4444dd);
+}
+
+.column-sort{
+    display: flex;
+    flex-direction: row;
+}

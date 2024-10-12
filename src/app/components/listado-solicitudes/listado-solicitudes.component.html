@@ -1,0 +1,54 @@
+@if(solicitudes.length > 0){
+    <table>
+        <caption>Listado de Solicitudes</caption>
+        <thead id="cabecera-listado">
+            <tr>
+                <th>
+                    <div class="column-sort">
+                        Nombre Completo<img class="sorter" src="sort-arrows.png" (click)="ordenar('Nombre')"/>
+                    </div>
+                </th>
+                <th>Email</th>
+                <th>Edad</th>
+                <th>Años de Exp.</th>
+                <th>
+                    <div class="column-sort">
+                        Puesto<img class="sorter" src="sort-arrows.png" (click)="ordenar('Puesto')"/>
+                    </div>
+                </th>
+                <th>F. Solicitud</th>
+                <th>
+                    <div class="column-sort">
+                        Estado Solicitud<img class="sorter" src="sort-arrows.png" (click)="ordenar('Estado')"/>
+                    </div>
+                <th>Eliminar Solicitud</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            @for(solicitud of solicitudes; track solicitud.id){
+                <tr>
+                    <td>{{solicitud.persona.nombreCompleto}}</td>
+                    <td>{{solicitud.persona.email}}</td>
+                    <td class="center-text">{{solicitud.persona.fechaNacimiento | edadDesdeFechaNacimiento}}</td>
+                    <td class="center-text">{{solicitud.aniosExperiencia}}</td>
+                    <td>{{solicitud.puestoSolicitado}}</td>
+                    <td>{{solicitud.fechaSolicitud | date:'dd/MM/yyyy'}}</td>
+                    <td>{{solicitud.estadoSolicitud}}</td>
+                    <td>
+                        <a (click)="borrarSolicitud(solicitud.id)">
+                            <mat-icon aria-hidden="false" aria-label="Modificar Solicitud" fontIcon="delete"></mat-icon>
+                        </a>
+                    </td>
+                    <td>
+                        <mat-icon [routerLink]="['/modificar-solicitud', solicitud.id]" aria-hidden="false" aria-label="Modificar Solicitud" fontIcon="edit"></mat-icon>
+                        <!-- <mat-icon (click)="abrirModificacion(solicitud.id)" aria-hidden="false" aria-label="Modificar Solicitud" fontIcon="edit"></mat-icon> -->
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}@else{
+    <p>No hay ninguna solicitud que mostrar.</p>
+}
+<router-outlet />
