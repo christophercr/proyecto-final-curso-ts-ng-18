@@ -1,0 +1,20 @@
+.item {
+  background-color: bisque;
+  border: 2px red solid;
+  padding: 0;
+
+  :hover {
+    background-color: burlywood;
+    cursor: pointer;
+  }
+}
+
+.filtro {
+  background-color: bisque;
+  border: 2px red solid;
+  padding: 10px;
+}
+
+.espacio {
+  padding: 10px;
+}

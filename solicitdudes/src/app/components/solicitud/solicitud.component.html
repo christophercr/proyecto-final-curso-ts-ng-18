@@ -1,0 +1,65 @@
+<form [formGroup]="formulario" (submit)="enviar()">
+  <div>
+    <label for="nombre">Nombre:</label>
+    <input type="text" formControlName="nombre">
+    @if (formulario.controls.nombre.touched && formulario.controls.nombre.errors) {
+      @if (formulario.controls.nombre.errors['required']) {
+        <div class="colorError">El campo nombre es requerido.</div>
+      }
+      @if (formulario.controls.nombre.errors['maxLength']) {
+        <div class="colorError">El campo nombre solo puede terner 40 caracteres.</div>
+      }
+    }
+  </div>
+  <div>
+    <label for="email">Email:</label>
+    <input type="text" formControlName="email">
+    @if (formulario.controls.email.touched && formulario.controls.email.errors) {
+      @if (formulario.controls.email.errors['required']) {
+        <div class="colorError">El campo email es requerido</div>
+      }
+      @if(formulario.controls.email.errors['email']) {
+        <div class="colorError">El campo email no es un email valido</div>
+      }
+    }
+  </div>
+  <div>
+    <label for="fechaNacimiento">Fecha Nacimiento:</label>
+    <input type="text" formControlName="fechaNacimiento">
+    @if (formulario.controls.fechaNacimiento.touched && formulario.controls.fechaNacimiento.errors) {
+      @if (formulario.controls.fechaNacimiento.errors['required']) {
+        <div class="colorError">El campo fecha es requerido</div>
+      }
+      @if(formulario.controls.fechaNacimiento.errors['pattern']) {
+        <div class="colorError">El campo fecha no es una fecha valida</div>
+      }
+    }
+  </div>
+  <div>
+    <label for="puesto">Puesto solicitado:</label>
+    <input type="text" formControlName="puesto">
+  </div>
+  <div>
+    <label for="experiencia">Experiencia:</label>
+    <input type="number" formControlName="experiencia">
+    @if (formulario.controls.experiencia.touched && formulario.controls.experiencia.errors) {
+      @if (formulario.controls.experiencia.errors['required']) {
+        <div class="colorError">El campo experiencia es requerido</div>
+      }
+      @if(formulario.controls.experiencia.errors['experiencia']) {
+        <div class="colorError">El dato experiencia tiene que ser mayor que 0 y menor que 30</div>
+      }
+    }
+  </div>
+  <div>
+    <label for="estado">Estado:</label>
+    <select formControlName="estado" >
+      <option value="en espera" selected>en espera</option>
+      <option value="aprobado">aprobado</option>
+      <option value="rechazado">rechazado</option>
+    </select>
+  </div>
+  <div>
+    <button type="submit" [disabled]="formulario.invalid">Enviar solicitud</button>
+  </div>
+</form>
