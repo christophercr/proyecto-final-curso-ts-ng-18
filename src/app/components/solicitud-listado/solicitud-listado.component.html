@@ -1,0 +1,42 @@
+<table class="collectionTable">
+    <thead>
+      <tr>
+        <td>Nombre completo</td>
+        <td>Email</td>
+        <td>Edad</td>
+        <td>Años de experiencia</td>
+        <td>Puesto solicitado</td>
+        <td>Fecha de solicitud</td>
+        <td>Estado de la solicitud</td>
+      </tr>
+   
+    </thead>
+    <tbody>
+      @for (solicitud of solicitudes; track solicitud._identifier) {
+        <tr>          
+          <td>
+            {{ solicitud.nombre }}
+          </td>                
+          <td>
+            {{ solicitud.email }}
+          </td>                
+          <td>
+            {{ solicitud.edad }}
+          </td>                
+          <td>
+            {{ solicitud.anyosExperiencia }}
+          </td>                
+          <td>
+            {{ solicitud.puestoSolicitud }}
+          </td>                
+          <td>
+            {{ solicitud.fechaSolicitud }}
+          </td>                 
+          <td>
+            {{ solicitud.estadoSolicitud }}
+          </td>       
+        </tr>
+      }
+    </tbody>
+  </table>
+  

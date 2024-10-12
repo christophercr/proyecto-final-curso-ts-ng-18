@@ -1,0 +1,23 @@
+{
+  "applications": [
+    {
+      "nombre": "Benjamin Button",
+      "email": "benjamin@email.com",
+      "edad": "12/01/1993",
+      "anyosExperiencia": 3,
+      "puestoSolicitud": "Developer",
+      "fechaSolicitud": 1727875370042,
+      "estadoSolicitud": "waiting"
+    },
+    {
+      "nombre": "Ana Julia",
+      "email": "ana@email.com",
+      "edad": "05/07/1987",
+      "anyosExperiencia": 7,
+      "puestoSolicitud": "Product Owner",
+      "fechaSolicitud": 1727717157225,
+      "estadoSolicitud": "approved"
+    }
+  ]
+}
+

@@ -1,0 +1,13 @@
+<h1>Control de solicitudes</h1>
+
+<ul class="media-type-list">
+  <li class="media-type-item" >
+    <!-- IMPORTANTE: para mejor UX una <a> es más usable, permite abrir la pantalla en otra pestaña -->
+    <a [routerLink]="'/solicitud-listado'">Listado de Solicitudes</a>
+  </li>  
+  <li class="media-type-item">
+    <a [routerLink]="'/solicitud-nueva'">Nueva Solicitud</a>
+  </li>
+</ul>
+
+<router-outlet>

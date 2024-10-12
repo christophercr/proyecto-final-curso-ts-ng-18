@@ -1,0 +1,34 @@
+<h3>Nueva solicitud</h3>
+
+<form [formGroup]="myForm" novalidate>
+  <ul>
+    <li>
+      <input [formControl]="myForm.controls.nombre" type="text" placeholder="Nombre" />
+    </li>
+    <li>
+      <input [formControl]="myForm.controls.email" type="text" placeholder="Email" />
+    </li>
+    <li>
+      <input [formControl]="myForm.controls.edad" type="text" placeholder="Edad" />
+    </li>    
+    <li>
+      <input [formControl]="myForm.controls.anyosExperiencia" type="text" title="Años de Experiencia" placeholder="Años de Experiencia" />
+    </li>
+    <li>
+      <input [formControl]="myForm.controls.puestoSolicitud" type="text" title="Puesto de Solicitud" placeholder="Puesto de Solicitud" />
+    </li>
+    <li>
+      <input [formControl]="myForm.controls.fechaSolicitud" type="text" title="Fecha de Solicitud" placeholder="Fecha de Solicitud" />
+    </li>
+    <li>    
+      <input [formControl]="myForm.controls.estadoSolicitud" type="textr" title="Estado de Solicitud" placeholder="Estado de Solicitud" />
+    </li>    
+  </ul>
+
+  <div>Form errors (all fields): {{ myForm.errors | json }}</div>
+  <div>Form final value: {{ myForm.value | json }}</div>
+  <div>Form final value (full): {{ myForm.getRawValue() | json }}</div>
+
+  <button type="button" (click)="crearSolicitud()">Create</button>
+</form>
+
