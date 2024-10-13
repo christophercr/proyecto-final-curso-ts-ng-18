@@ -30,6 +30,10 @@ export class ModificarSolicitudComponent implements FormSolicitud{
       Validators.maxLength(40),
     ]),
     email: new FormControl('', [Validators.required, Validators.email]),
+    /* fechaNacimiento: new FormControl(formatDate(this.solicitud?.persona.fechaNacimiento, 'yyyy-MM-dd', 'en', [
+      Validators.required,
+      edadValida(),
+    ]), */
     fechaNacimiento: new FormControl(new Date(), [
       Validators.required,
       edadValida(),
@@ -42,10 +46,9 @@ export class ModificarSolicitudComponent implements FormSolicitud{
   });
 
   ngOnInit(): void {
-    this.solicitudParaModificar = this.route.snapshot.paramMap.get('id');
-    if(this.solicitudParaModificar != null){
-      this.cargarSolicitudEnFomulario(this.solicitudParaModificar);
-    }
+    this.route.paramMap.subscribe((params) => {
+      this.inicializarFormulario(params.get('id'));
+    });
   }
 
   cargarSolicitudEnFomulario(solicitudParaModificar:string){
@@ -56,7 +59,13 @@ export class ModificarSolicitudComponent implements FormSolicitud{
       this.myForm.controls.fechaNacimiento.setValue(this.solicitud.persona.fechaNacimiento);
       this.myForm.controls.aniosExperiencia.setValue(this.solicitud.aniosExperiencia);
       this.myForm.controls.puestoSolicitado.setValue(this.solicitud.puestoSolicitado);
+    }
+  }
 
+  inicializarFormulario(id:string|null){
+    this.solicitudParaModificar = id;
+    if(this.solicitudParaModificar != null){
+      this.cargarSolicitudEnFomulario(this.solicitudParaModificar);
     }
   }
 
@@ -69,7 +78,7 @@ export class ModificarSolicitudComponent implements FormSolicitud{
       }
 
       const solicitudACrear: Solicitud = new Solicitud(
-        '',
+        (this.solicitud != null && this.solicitud.id != undefined) ? this.solicitud.id : '',
         new Persona(
           rawValue.nombreCompleto,
           rawValue.email,

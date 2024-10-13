@@ -34,16 +34,24 @@ export class SolicitudService implements ISolicitudService<Solicitud>{
   recargarSolicitudes():void{
     let solicitud1 = new Solicitud(
       '',
-      new Persona('Alberto M.', 'alberto@gmail.com', new Date('1983-04-17')),
+      new Persona(
+        'Alberto M.', 
+        'alberto@gmail.com', 
+        new Date(1983, 3, 18, 0, 0, 0),
+      ),
       'Programador',
-      new Date(1993, 3, 24), 
+      new Date(93, 3, 24), 
       'En espera',
       7
     );
     let solicitud2 = new Solicitud(
       '',
-      new Persona('Tamara C.', 'tamara@gmail.com', new Date('1982-11-21')),
-      'Analista',
+      new Persona(
+        'Tamara C.', 
+        'tamara@gmail.com', 
+        new Date(1982, 11, 21, 0, 0, 0),
+      ),
+      'Analista', 
       new Date(1987, 9, 17), 
       'Aceptada',
       4
@@ -67,7 +75,11 @@ export class SolicitudService implements ISolicitudService<Solicitud>{
   }
 
   modificarSolicitud(solicitudModificada:Solicitud):void{
-    this._listaSolicitudes.map((s, index) => s.id === solicitudModificada.id ? solicitudModificada : s);
+    this._listaSolicitudes.map((s, index) => {
+      if(s.id === solicitudModificada.id){
+        this._listaSolicitudes[index] = solicitudModificada;
+      }
+    });
   }
 
   consultarSolicitud(solicitudId:string):Solicitud | undefined{
