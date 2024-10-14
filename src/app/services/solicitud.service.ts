@@ -19,7 +19,7 @@ export class SolicitudService {
 
   // Método para cargar todas las solicitudes desde el archivo JSON
   private cargarSolicitudes(): void {
-    this.http.get<Solicitud[]>(this.solicitudesUrl).pipe(
+    return this.http.get<Solicitud[]>(this.solicitudesUrl).pipe(
       map(data => data.map(item => new Solicitud(
         item.id,
         item.nombreCompleto,
@@ -29,8 +29,10 @@ export class SolicitudService {
         item.puestoSolicitado,
         item.fechaSolicitud, // Convertir la fecha aquí
         item.estado
-      )))
-    ).subscribe(solicitudes => this.solicitudesSubject.next(solicitudes));
+      ))),
+      tap((solicitudes) => { // aquí recibirás ya las solicitudes tal y como las has mapeado arriba
+          this.solicitudesSubject.next(solicitudes);
+      });  // y sin suscribirte, eso lo hará quien llame a tu método
   }
 
   // Método para obtener todas las solicitudes
