@@ -2,10 +2,11 @@ import { Component, EventEmitter, inject, Input, Output } from '@angular/core';
 import { Solicitud } from '../../../models/solicitud.model';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { DatePipe, JsonPipe } from '@angular/common';
-import { edadValida, FormSolicitud } from '../../../models/form-solicitud.model';
+import { FormSolicitud } from '../../../models/form-solicitud.model';
 import { Persona } from '../../../models/persona.model';
 import { SolicitudService } from '../../../services/solicitud.service';
 import { ActivatedRoute } from '@angular/router';
+import { edadValida } from '../../../validators/form-solicitud.validator';
 
 @Component({
   selector: 'app-modificar-solicitud',
@@ -43,6 +44,7 @@ export class ModificarSolicitudComponent implements FormSolicitud{
       Validators.pattern(/^[0-9]+$/),
     ]),
     puestoSolicitado: new FormControl('', Validators.required),
+    estadoSolicitud: new FormControl('', Validators.required)
   });
 
   ngOnInit(): void {
@@ -62,6 +64,7 @@ export class ModificarSolicitudComponent implements FormSolicitud{
       );
       this.myForm.controls.aniosExperiencia.setValue(this.solicitud.aniosExperiencia);
       this.myForm.controls.puestoSolicitado.setValue(this.solicitud.puestoSolicitado);
+      this.myForm.controls.estadoSolicitud.setValue(this.solicitud.estadoSolicitud);
     }
   }
 
@@ -88,8 +91,8 @@ export class ModificarSolicitudComponent implements FormSolicitud{
           rawValue.fechaNacimiento
         ),
         rawValue.puestoSolicitado,
-        new Date(),
-        'En espera',
+        this.solicitud?.fechaSolicitud != undefined ? this.solicitud?.fechaSolicitud : new Date(),
+        rawValue.estadoSolicitud,
         rawValue.aniosExperiencia
       );
 

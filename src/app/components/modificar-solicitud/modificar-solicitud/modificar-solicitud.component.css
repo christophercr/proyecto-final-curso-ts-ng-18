@@ -22,7 +22,7 @@
 }
 
 .input-group>label {
-    margin-right: 1em;
+    margin-right: 0.5em;
     padding: .5em 0;
 }
 
@@ -46,4 +46,7 @@ div.fecha-solicitud{
     display: flex;
     flex-direction: column;
     justify-content: center;
+}
+.ancho-element-form{
+    width: 5.5em;
 }

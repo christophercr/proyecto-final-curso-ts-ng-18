@@ -37,7 +37,7 @@
         <div class="input-group">
           <label for="input-exp">Años de Experiencia: </label>
           <div>
-            <input type="number" id="input-exp" [formControl]="myForm.controls.aniosExperiencia">
+            <input type="number" id="input-exp" class="ancho-element-form" [formControl]="myForm.controls.aniosExperiencia">
             @if(myForm.controls.aniosExperiencia.dirty){
               @if(myForm.controls.aniosExperiencia.hasError('required')){ <span class="mensaje-error">Este campo es obligatorio</span> }
               @if(myForm.controls.aniosExperiencia.hasError('pattern')){ <span class="mensaje-error">Tiene que ser un número</span> }
@@ -55,18 +55,31 @@
         <fieldset class="puesto">
           <legend>Puesto solicitado:</legend>
           <div class="puestos">
-              <label> <input type="radio" id="Programador" value="Programador" formControlName="puestoSolicitado"> Programador </label>
-              <label> <input type="radio" id="Diseñador" value="Diseñador" formControlName="puestoSolicitado"> Diseñador </label>
-              <label> <input type="radio" id="Analista" value="Analista" formControlName="puestoSolicitado"> Analista </label>
-              <label> <input type="radio" id="JefeProyecto"  value="JefeProyecto" formControlName="puestoSolicitado"> Jefe de Proyecto </label>
+              <label> <input type="radio" id="Programador" value="Programador" [formControl]="myForm.controls.puestoSolicitado"> Programador </label>
+              <label> <input type="radio" id="Diseñador" value="Diseñador" [formControl]="myForm.controls.puestoSolicitado"> Diseñador </label>
+              <label> <input type="radio" id="Analista" value="Analista" [formControl]="myForm.controls.puestoSolicitado"> Analista </label>
+              <label> <input type="radio" id="JefeProyecto"  value="JefeProyecto" [formControl]="myForm.controls.puestoSolicitado"> Jefe de Proyecto </label>
               @if(myForm.controls.puestoSolicitado.dirty){
                 @if(myForm.controls.puestoSolicitado.hasError('required')){ <span class="mensaje-error">Este campo es obligatorio</span> }
               }
           </div>
         </fieldset>
       </div>
+      <div class="column">
+        <fieldset class="puesto">
+          <legend>Estado solicitud:</legend>
+          <div class="puestos">
+              <label> <input type="radio" id="en-espera" value="En espera" [formControl]="myForm.controls.estadoSolicitud"> En espera </label>
+              <label> <input type="radio" id="aceptada" value="Aceptada" [formControl]="myForm.controls.estadoSolicitud"> Aceptada </label>
+              <label> <input type="radio" id="rechazada" value="Rechazada" [formControl]="myForm.controls.estadoSolicitud"> Rechazada </label>
+              @if(myForm.controls.estadoSolicitud.dirty){
+                @if(myForm.controls.estadoSolicitud.hasError('required')){ <span class="mensaje-error">Este campo es obligatorio</span> }
+              }
+          </div>
+        </fieldset>
+      </div>
     <div class="row">
-      <button id="submit" (click)="grabarSolicitud()" [disabled]="!myForm.valid">Modificar Solicitud</button>
+      <button id="submit" class="ancho-element-form" (click)="grabarSolicitud()" [disabled]="!myForm.valid">Modificar Solicitud</button>
     </div>
   </div>
   <!-- <p *ngIf="myForm.errors != null">Errores de validación: (all fields): {{ myForm.errors | json }}</p> -->

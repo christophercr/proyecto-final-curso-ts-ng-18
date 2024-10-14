@@ -47,10 +47,10 @@
           <fieldset class="puesto">
             <legend>¿Qué puesto estás solicitando?</legend>
             <div class="puestos">
-                <label> <input type="radio" id="Programador" value="Programador" formControlName="puestoSolicitado"> Programador </label>
-                <label> <input type="radio" id="Diseñador" value="Diseñador" formControlName="puestoSolicitado"> Diseñador </label>
-                <label> <input type="radio" id="Analista" value="Analista" formControlName="puestoSolicitado"> Analista </label>
-                <label> <input type="radio" id="JefeProyecto"  value="JefeProyecto" formControlName="puestoSolicitado"> Jefe de Proyecto </label>
+                <label> <input type="radio" id="Programador" value="Programador" [formControl]="myForm.controls.puestoSolicitado"> Programador </label>
+                <label> <input type="radio" id="Diseñador" value="Diseñador" [formControl]="myForm.controls.puestoSolicitado"> Diseñador </label>
+                <label> <input type="radio" id="Analista" value="Analista" [formControl]="myForm.controls.puestoSolicitado"> Analista </label>
+                <label> <input type="radio" id="JefeProyecto"  value="JefeProyecto" [formControl]="myForm.controls.puestoSolicitado"> Jefe de Proyecto </label>
                 @if(myForm.controls.puestoSolicitado.dirty){
                   @if(myForm.controls.puestoSolicitado.hasError('required')){ <span class="mensaje-error">Este campo es obligatorio</span> }
                 }

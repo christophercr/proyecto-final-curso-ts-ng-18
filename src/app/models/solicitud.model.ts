@@ -1,4 +1,4 @@
-import { EstadoSolicitud, Puesto } from '../custom-types/custom-types';
+import { EstadoSolicitud, Puesto } from '../custom-types/solicitud-types';
 import { Persona } from './persona.model';
 import { Expose } from 'class-transformer';
 

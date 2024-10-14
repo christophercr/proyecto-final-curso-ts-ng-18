@@ -12,7 +12,8 @@ import {
 import { Persona } from '../../models/persona.model';
 import { SolicitudService } from '../../services/solicitud.service';
 import { JsonPipe } from '@angular/common';
-import { edadValida, FormSolicitud } from '../../models/form-solicitud.model';
+import { FormSolicitud } from '../../models/form-solicitud.model';
+import { edadValida } from '../../validators/form-solicitud.validator';
 
 @Component({
   selector: 'app-alta-solicitud',
