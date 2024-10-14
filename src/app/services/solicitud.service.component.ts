@@ -1,14 +1,11 @@
-import { Component } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Solicitud } from '../models/solicitud.model';
+import { Injectable } from '@angular/core';
 
-@Component({
-  selector: 'app-solicitud.service',
-  standalone: true,
-  imports: [],
-  templateUrl: './solicitud.service.component.html',
-  styleUrl: './solicitud.service.component.css'
+@Injectable({
+  providedIn: 'root'
 })
+
 export class SolicitudService {
   reloadSolicitudColecciones() { }
 

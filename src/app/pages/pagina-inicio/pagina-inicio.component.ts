@@ -9,10 +9,5 @@ import { Router, RouterLink, RouterOutlet } from '@angular/router';
   styleUrl: './pagina-inicio.component.css'
 })
 export class PaginaInicioComponent {
-  private readonly _router = inject(Router)
-
-  // modo manual de navegar, en caso de no quere usar la directiva 'routerLink'
-  public navigateTo(route: string) {
-    this._router.navigate([route]);
-  }
+  
 }

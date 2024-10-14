@@ -10,19 +10,23 @@ export const routes: Routes = [
         component: PaginaInicioComponent,
         children: [
           /* {
-             path: '',  // => localhost:3000/solicitudes/
+             path: '',  
              pathMatch: 'full', // pero aquí le decimos que no añada '/'  => localhost:3000/solicitudes
              redirectTo: 'solicitud-listado',
            },  */         
            {
-             path: 'solicitud-nueva', // => localhost:3000/books/new-book
+             path: 'solicitud-nueva', 
              component: SolicitudNuevaComponent, 
              
            },
            {
-             path: 'solicitud-listado', // => localhost:3000/books/collection-list
+             path: 'solicitud-listado', 
              component: SolicitudListadoComponent, 
            },
+           {
+            path: 'solicitud-edicion', 
+            component: SolicitudListadoComponent, 
+          },
          ]
       },
       {
