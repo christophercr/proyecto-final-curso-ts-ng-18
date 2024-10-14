@@ -33,7 +33,7 @@ import { ApplicationsService } from '../../services/applications.service';
   templateUrl: './applicant-form.component.html',
   styleUrl: './applicant-form.component.css',
 })
-export class ApplicantsFormComponent {
+export class ApplicantFormComponent {
   private readonly _applicantservice = inject(ApplicationsService);
 
   @Output()
