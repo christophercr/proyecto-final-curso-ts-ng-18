@@ -25,7 +25,7 @@ export class ListadoSolicitudesPageComponent {
     this._coleccionSolicitudes =  this._solicitudService.consultarSolicitudes();
   }
 
-  eliminarLibro(solicitudId: string):void{
+  eliminarSolicitud(solicitudId: string):void{
     this._solicitudService.eliminarSolicitud(solicitudId);
     this._coleccionSolicitudes =  this._solicitudService.consultarSolicitudes();
   }

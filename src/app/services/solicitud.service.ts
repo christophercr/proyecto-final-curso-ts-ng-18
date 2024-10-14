@@ -1,8 +1,6 @@
-import { plainToClassFromExist } from 'class-transformer';
-import { inject, Injectable } from '@angular/core';
-import { ISolicitudService, SOLICITUD_STORAGE_SERVICE } from '../models/solicitud-service.model';
+import { Injectable } from '@angular/core';
+import { ISolicitudService} from '../models/solicitud-service.model';
 import { Solicitud } from '../models/solicitud.model';
-import { lastValueFrom, Observable } from 'rxjs';
 import { Persona } from '../models/persona.model';
 
 @Injectable({
