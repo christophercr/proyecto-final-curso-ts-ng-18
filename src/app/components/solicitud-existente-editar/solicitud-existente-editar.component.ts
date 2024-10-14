@@ -13,7 +13,7 @@ import { SolicitudService } from './../../services/solicitud.service';
   styleUrls: ['./solicitud-existente-editar.component.css'],
 })
 export class SolicitudExistenteComponent {
-  solicitud: Solicitud = new Solicitud(0, '', '', new Date(), 0, '', '', 'en espera');
+  solicitud: Solicitud | null = null; // y en tu código hacer el if pertinente cuando lo necesites
 
   constructor(
     private solicitudService: SolicitudService,
