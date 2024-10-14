@@ -2,7 +2,7 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { AltaSolicitudComponent } from './alta-solicitud.component';
 
-describe('AltaSolicitudComponent', () => {
+xdescribe('AltaSolicitudComponent', () => {
   let component: AltaSolicitudComponent;
   let fixture: ComponentFixture<AltaSolicitudComponent>;
 

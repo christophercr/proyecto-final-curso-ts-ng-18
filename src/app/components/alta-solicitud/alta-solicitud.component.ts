@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { Component, EventEmitter, inject, Output } from '@angular/core';
 import { Solicitud } from '../../models/solicitud.model';
 import {
   AbstractControl,
@@ -23,6 +23,9 @@ import { edadValida, FormSolicitud } from '../../models/form-solicitud.model';
 })
 export class AltaSolicitudComponent implements FormSolicitud {
   private _solicitudService = inject(SolicitudService);
+
+  @Output()
+  created: EventEmitter<Solicitud> = new EventEmitter<Solicitud>();
 
   myForm = new FormGroup({
     nombreCompleto: new FormControl('', [
@@ -71,7 +74,7 @@ export class AltaSolicitudComponent implements FormSolicitud {
 
       this._solicitudService.crearSolicitud(solicitudACrear);
       this._solicitudService.consultarSolicitudes();
-
+      this.created.emit();
       this.myForm.reset();
     }
   }

@@ -26,11 +26,11 @@
         <div class="input-group">
           <label for="input-fecha-nac">Fecha de nacimiento: </label>
           <div>
-            <input type="date" id="input-fecha-nac" [formControl]="myForm.controls.fechaNacimiento" >
+            <input type="date" id="input-fecha-nac" [formControl]="myForm.controls.fechaNacimiento">
             @if(myForm.controls.fechaNacimiento.dirty){
               @if(myForm.controls.fechaNacimiento.hasError('required')){ <span class="mensaje-error">Este campo es obligatorio</span> }
               @if(myForm.controls.fechaNacimiento.hasError('edadValida')){ <span class="mensaje-error">La edad debe ser mayor de 17 y menor de 65</span> }
-            }{{myForm.controls.fechaNacimiento.value | json}}
+            }
           </div>
          
         </div>

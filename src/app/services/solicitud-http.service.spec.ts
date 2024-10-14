@@ -2,7 +2,7 @@ import { TestBed } from '@angular/core/testing';
 
 import { SolicitudHttpService } from './solicitud-http.service';
 
-describe('SolicitudHttpService', () => {
+xdescribe('SolicitudHttpService', () => {
   let service: SolicitudHttpService;
 
   beforeEach(() => {

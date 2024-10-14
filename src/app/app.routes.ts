@@ -3,6 +3,8 @@ import { ListadoSolicitudesPageComponent } from './pages/listado-solicitudes-pag
 import { AltaSolicitudComponent } from './components/alta-solicitud/alta-solicitud.component';
 import { ModificarSolicitudComponent } from './components/modificar-solicitud/modificar-solicitud/modificar-solicitud.component';
 import { Injectable } from '@angular/core';
+import { ModificarSolicitudPageComponent } from './pages/modificar-solicitud-page/modificar-solicitud-page/modificar-solicitud-page.component';
+import { AltaSolicitudPageComponent } from './pages/alta-solicitud-page/alta-solicitud-page.component';
 
 /**
  * RouteReuseStrategy to be used when defining `onSameUrlNavigation: 'reload'` in the RouterModule config.
@@ -84,11 +86,11 @@ export const routes: Routes = [
         },
         {
           path: 'alta-solicitud',
-          component: AltaSolicitudComponent
+          component: AltaSolicitudPageComponent
         },
         {
           path: 'modificar-solicitud/:id',
-          component: ModificarSolicitudComponent,
+          component: ModificarSolicitudPageComponent,
 
         }
       ]

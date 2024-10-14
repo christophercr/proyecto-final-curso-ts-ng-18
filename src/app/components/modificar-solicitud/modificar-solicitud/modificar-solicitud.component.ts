@@ -34,7 +34,7 @@ export class ModificarSolicitudComponent implements FormSolicitud{
       Validators.required,
       edadValida(),
     ]), */
-    fechaNacimiento: new FormControl(new Date(), [
+    fechaNacimiento: new FormControl('', [
       Validators.required,
       edadValida(),
     ]),
@@ -56,7 +56,10 @@ export class ModificarSolicitudComponent implements FormSolicitud{
     if(this.solicitud != null){
       this.myForm.controls.nombreCompleto.setValue(this.solicitud.persona.nombreCompleto);
       this.myForm.controls.email.setValue(this.solicitud.persona.email);
-      this.myForm.controls.fechaNacimiento.setValue(this.solicitud.persona.fechaNacimiento);
+      this.myForm.controls.fechaNacimiento.setValue(
+        '1983-10-10'
+        /* this.solicitud.persona.fechaNacimiento */
+      );
       this.myForm.controls.aniosExperiencia.setValue(this.solicitud.aniosExperiencia);
       this.myForm.controls.puestoSolicitado.setValue(this.solicitud.puestoSolicitado);
     }
@@ -92,6 +95,8 @@ export class ModificarSolicitudComponent implements FormSolicitud{
 
       this._solicitudService.modificarSolicitud(solicitudACrear);
       this._solicitudService.consultarSolicitudes();
+      this.modifyed.emit();
+      this.myForm.reset();
     }
   }
 

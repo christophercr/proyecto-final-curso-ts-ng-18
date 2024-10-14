@@ -1,5 +1,10 @@
 <section>
     <article>
-        <app-alta-solicitud/>
+        @if(!modificado){
+            <app-alta-solicitud (created)="mostrarMensajeOK()"/>
+        }
+        @if(modificado){
+            <p class="solicitud-grabada-ok">¡Grabado correctamente!</p>
+        }
     </article>
 </section>

@@ -54,7 +54,5 @@ export class ListadoSolicitudesComponent {
    } 
   }
 
-/*   abrirModificacion(id:string | undefined){
-    this.router.navigateByUrl('modificar-solicitud/'+id);
-  }   */
+
 }

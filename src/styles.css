@@ -25,3 +25,8 @@ body {
 input.ng-dirty.ng-invalid {
     border: 3px solid red;
 }
+.solicitud-grabada-ok{
+    color: #78c065;
+    font-weight: bold;
+    font-size: 22px;
+}
