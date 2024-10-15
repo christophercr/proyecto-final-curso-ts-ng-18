@@ -1,12 +1,9 @@
 import { Component, EventEmitter, inject, Output } from '@angular/core';
 import { Solicitud } from '../../models/solicitud.model';
 import {
-  AbstractControl,
   FormControl,
   FormGroup,
   ReactiveFormsModule,
-  ValidationErrors,
-  ValidatorFn,
   Validators,
 } from '@angular/forms';
 import { Persona } from '../../models/persona.model';

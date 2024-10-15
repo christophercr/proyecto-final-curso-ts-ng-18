@@ -42,13 +42,15 @@
                     </td>
                     <td>
                         <mat-icon [routerLink]="['/modificar-solicitud', solicitud.id]" aria-hidden="false" aria-label="Modificar Solicitud" fontIcon="edit"></mat-icon>
-                        <!-- <mat-icon (click)="abrirModificacion(solicitud.id)" aria-hidden="false" aria-label="Modificar Solicitud" fontIcon="edit"></mat-icon> -->
                     </td>
                 </tr>
             }
         </tbody>
     </table>
     
+    @if(borrado){
+        <p class="solicitud-grabada-ok">¡Borrado correctamente!</p>
+    }
 }@else{
     <p>No hay ninguna solicitud que mostrar.</p>
 }

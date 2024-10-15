@@ -1,7 +1,7 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Component, EventEmitter, inject, Input, Output } from '@angular/core';
 import { Solicitud } from '../../models/solicitud.model';
 import { EdadDesdeFechaNacimientoPipe } from '../../pipes/edad-desde-fecha-nacimiento.pipe';
-import { RouterOutlet, RouterLink} from '@angular/router';
+import { RouterOutlet, RouterLink, Router, NavigationStart} from '@angular/router';
 import { DatePipe } from '@angular/common';
 import {MatIconModule} from '@angular/material/icon';
 
@@ -13,14 +13,27 @@ import {MatIconModule} from '@angular/material/icon';
   styleUrl: './listado-solicitudes.component.css'
 })
 export class ListadoSolicitudesComponent {
+  router = inject(Router);
+
   @Input()
   solicitudes: Solicitud[] = [];
 
   @Output()
   solicitudBorrada = new EventEmitter<string>();
+
+  borrado = false;
+
+  ngOnInit(){
+    this.router.events.subscribe((evento) => {
+      if(evento instanceof NavigationStart){
+        this.borrado = false;
+      }
+    });
+  }
   
   borrarSolicitud(id: string | undefined): void {
     this.solicitudBorrada.emit(id);
+    this.borrado = true;
   }
 
   ordenar(event:string):void{
