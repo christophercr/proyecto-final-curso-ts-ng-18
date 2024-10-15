@@ -36,7 +36,7 @@
                     <td>{{solicitud.fechaSolicitud | date:'dd/MM/yyyy'}}</td>
                     <td>{{solicitud.estadoSolicitud}}</td>
                     <td>
-                        <a (click)="borrarSolicitud(solicitud.id)">
+                        <a data-test="borrar-solicitud" (click)="borrarSolicitud(solicitud.id)">
                             <mat-icon aria-hidden="false" aria-label="Modificar Solicitud" fontIcon="delete"></mat-icon>
                         </a>
                     </td>

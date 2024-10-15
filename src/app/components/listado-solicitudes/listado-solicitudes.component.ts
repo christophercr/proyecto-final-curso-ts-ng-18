@@ -3,7 +3,7 @@ import { Solicitud } from '../../models/solicitud.model';
 import { EdadDesdeFechaNacimientoPipe } from '../../pipes/edad-desde-fecha-nacimiento.pipe';
 import { RouterOutlet, RouterLink, Router, NavigationStart} from '@angular/router';
 import { DatePipe } from '@angular/common';
-import {MatIconModule} from '@angular/material/icon';
+import { MatIconModule } from '@angular/material/icon';
 
 @Component({
   selector: 'app-listado-solicitudes',
