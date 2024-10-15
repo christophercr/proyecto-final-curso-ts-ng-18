@@ -14,11 +14,13 @@ import { ApplicantModel } from '../../models/applicant.model';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { FormBuilder, Validators } from '@angular/forms';
 import { ApplicationsService } from '../../services/applications.service';
+import { animate, state, style, transition, trigger } from '@angular/animations';
+import { provideAnimations } from '@angular/platform-browser/animations';
 
 @Component({
   selector: 'app-applicants-form',
   standalone: true,
-  providers: [provideNativeDateAdapter()],
+  providers: [provideNativeDateAdapter(), provideAnimations()],
   imports: [
     MatFormFieldModule,
     MatInputModule,
@@ -28,10 +30,11 @@ import { ApplicationsService } from '../../services/applications.service';
     MatMomentDateModule,
     ReactiveFormsModule,
     FormsModule,
-    MatCommonModule,
+    MatCommonModule
   ],
   templateUrl: './applicant-form.component.html',
   styleUrl: './applicant-form.component.css',
+  animations: []
 })
 export class ApplicantFormComponent {
   private readonly _applicantservice = inject(ApplicationsService);
