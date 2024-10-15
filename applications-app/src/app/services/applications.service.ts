@@ -23,14 +23,14 @@ export class ApplicationsService {
 
   async createApplicant(applicantOrId: ApplicantModel | string): Promise<void> {
     try {
-      await this.applicantHTTPService(applicantOrId, 'create-applicant');
+      await this.applicantHTTPRequesting(applicantOrId, 'create-applicant');
     } catch (err) {
       console.error('Error while saving the new applicant: ', err);
       // this.displayErrorMessage(`Failed to update the existing book collection called ${existingCollection.name}`);
     }
   }
 
-  applicantHTTPService(
+  applicantHTTPRequesting(
     applicantOrId: ApplicantModel | string,
     typeOfChange: string
   ): Promise<void> | undefined | void {

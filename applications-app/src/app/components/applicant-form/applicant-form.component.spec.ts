@@ -26,16 +26,16 @@ describe('Suite of tests on applicant-form.component (applicantForm)', () => {
     fixture.detectChanges();
   });
 
-/*   describe('inputs:', () => {
+  describe('inputs:', () => {
     describe('dado el input "name"', () => {
       it('debe de poner el valor en la caja de texto del nombre dado', () => {
-        component.applicantForm.controls.name = 'otro valor';
+        component.applicantForm.controls.name.setValue('otro valor');
         const compiledHtml = fixture.nativeElement as HTMLElement;
         const inputBox = compiledHtml.querySelector('[data-test="field-collection-name"]') as HTMLInputElement;
         expect(inputBox.value).toBe('otro valor');
       });
     });
-  }); */
+  });
 
   describe('sendApplicantForm', () => {
     it('It must emit an event when the button "Enviar" is cliked', (done: DoneFn) => {

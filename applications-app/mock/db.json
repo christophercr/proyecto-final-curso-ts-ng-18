@@ -43,6 +43,25 @@
     },
     {
       "id": "80ff"
+    },
+    {
+      "id": "3e39"
+    },
+    {
+      "id": "bb91"
+    },
+    {
+      "id": "83a3"
+    },
+    {
+      "id": "93e1",
+      "name": "Jorge - Violeta",
+      "email": "jorgealva@agroseguro.es",
+      "age": 41,
+      "yearsExp": 2,
+      "position": "programador",
+      "dateOfApplication": "2024-10-14T22:00:00.000Z",
+      "status": "aprovado"
     }
   ]
 }
