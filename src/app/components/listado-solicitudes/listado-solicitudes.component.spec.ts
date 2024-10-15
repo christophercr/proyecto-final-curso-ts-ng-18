@@ -37,7 +37,7 @@ describe('ListadoSolicitudesComponent', () => {
     expect(component).toBeTruthy();
   });
 
-  fdescribe('Output:', () => {
+  describe('Output:', () => {
     describe('solicitudBorrada', () =>{
       it('comprobar que emite al borrar una solicitud', () => {
         const spy = spyOn(component.solicitudBorrada, 'emit');
@@ -46,6 +46,18 @@ describe('ListadoSolicitudesComponent', () => {
         borrarSolicitudEnlace.click();
 
         expect(spy).toHaveBeenCalledTimes(1);
+      });
+    });
+  });
+  fdescribe('Input:', () => {
+    describe('solicitudes', () =>{
+      it('comprobar que se carga la tabla', () => {
+        const spy = spyOn(component.solicitudBorrada, 'emit');
+        const compiledHtml = fixture.nativeElement as HTMLElement;
+        const tablaSolicitudes = compiledHtml.querySelector('[data-test="tabla-solicitudes"]') as HTMLTableElement;
+
+        //Se esperan dos en el body de la tabla, la cabecera y un fila porque hay una solicitud
+        expect(tablaSolicitudes.tBodies[0].childNodes.length).toBe(2);
       });
     });
   });
