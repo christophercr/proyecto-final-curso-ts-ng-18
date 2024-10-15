@@ -4,24 +4,69 @@
   <ul>
     <li>
       <input [formControl]="myForm.controls.nombre" type="text" placeholder="Nombre" />
+      @if (myForm.controls.nombre.dirty && myForm.controls.nombre.errors) {
+        @if (myForm.controls.nombre.errors['required']) {
+          <div class="colorError">El campo nombre es requerido.</div>
+        }
+        @if (myForm.controls.nombre.errors['maxLength']) {
+          <div class="colorError">El campo nombre solo puede terner 40 caracteres.</div>
+        }
+      }
     </li>
     <li>
       <input [formControl]="myForm.controls.email" type="text" placeholder="Email" />
+      @if (myForm.controls.email.dirty && myForm.controls.email.errors) {
+        @if (myForm.controls.email.errors['required']) {
+          <div class="colorError">El campo email es requerido</div>
+        }
+        @if(myForm.controls.email.errors['email']) {
+          <div class="colorError">El campo email no es un email valido</div>
+        }
+      }
     </li>
     <li>
-      <input [formControl]="myForm.controls.edad" type="text" placeholder="Edad" />
+      <input [formControl]="myForm.controls.edad" type="number" placeholder="Edad" />
+      @if (myForm.controls.edad.dirty && myForm.controls.edad.errors) {
+        @if (myForm.controls.edad.errors['required']) {
+          <div class="colorError">El campo edad es requerido</div>
+        }
+        @if(myForm.controls.edad.errors['pattern']) {
+          <div class="colorError">El campo edad no tiene un formato valido</div>
+        }
+      }
     </li>    
     <li>
-      <input [formControl]="myForm.controls.anyosExperiencia" type="text" title="Años de Experiencia" placeholder="Años de Experiencia" />
+      <input [formControl]="myForm.controls.anyosExperiencia" type="number" title="Años de Experiencia" placeholder="Años de Experiencia" />
+      @if (myForm.controls.anyosExperiencia.dirty && myForm.controls.anyosExperiencia.errors) {
+        @if (myForm.controls.anyosExperiencia.errors['required']) {
+          <div class="colorError">El campo años de experiencia es requerido</div>
+        }
+        @if(myForm.controls.anyosExperiencia.errors['anyosExperiencia']) {
+          <div class="colorError">Los años de experiencia tiene que ser mayor que 0 y menor que 30</div>
+        }
+      }
     </li>
     <li>
       <input [formControl]="myForm.controls.puestoSolicitud" type="text" title="Puesto de Solicitud" placeholder="Puesto de Solicitud" />
     </li>
     <li>
-      <input [formControl]="myForm.controls.fechaSolicitud" type="text" title="Fecha de Solicitud" placeholder="Fecha de Solicitud" />
+      <input [formControl]="myForm.controls.fechaSolicitud" type="date" title="Fecha de Solicitud" placeholder="Fecha de Solicitud" />
+      @if (myForm.controls.fechaSolicitud.dirty && myForm.controls.fechaSolicitud.errors) {
+        @if (myForm.controls.fechaSolicitud.errors['required']) {
+          <div class="colorError">El campo fecha de solicitud es requerido</div>
+        }
+        @if(myForm.controls.fechaSolicitud.errors['date']) {
+          <div class="colorError">El formato fecha de solicitud no es valido</div>
+        }
+      }
     </li>
     <li>    
-      <input [formControl]="myForm.controls.estadoSolicitud" type="textr" title="Estado de Solicitud" placeholder="Estado de Solicitud" />
+      <!-- <input [formControl]="myForm.controls.estadoSolicitud" type="texto" title="Estado de Solicitud" placeholder="Estado de Solicitud" /> -->
+      <select [formControl]="myForm.controls.estadoSolicitud" type="texto" title="Estado de Solicitud" placeholder="Estado de Solicitud" >
+        <option value="en espera" selected>en espera</option>
+        <option value="aprobado">aprobado</option>
+        <option value="rechazado">rechazado</option>
+      </select>
     </li>    
   </ul>
 

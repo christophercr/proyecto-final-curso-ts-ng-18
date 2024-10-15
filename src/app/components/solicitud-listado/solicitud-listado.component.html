@@ -28,10 +28,8 @@
           </td>                
           <td>
             {{ solicitud.puestoSolicitud }}
-          </td>                
-          <td>
-            {{ solicitud.fechaSolicitud }}
-          </td>                 
+          </td>                                           
+          <td>{{solicitud.fechaSolicitud | date:'dd/MM/yyyy'}}</td>
           <td>
             {{ solicitud.estadoSolicitud }}
           </td>       

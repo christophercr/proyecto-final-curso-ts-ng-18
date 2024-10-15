@@ -2,7 +2,7 @@ import { Component, inject } from '@angular/core';
 import { FormControl, ReactiveFormsModule, Validators } from '@angular/forms';
 import { ActivatedRoute, Router, RouterLink, RouterOutlet } from '@angular/router';
 import { SolicitudNuevaComponent } from '../../../components/solicitud-nueva/solicitud-nueva.component';
-import { SolicitudService } from '../../../services/solicitud.service.component';
+import { SolicitudService } from '../../../services/solicitud.service';
 import { KeyValuePipe } from '@angular/common';
 import { delay } from 'rxjs';
 import { Solicitud } from '../../../models/solicitud.model';

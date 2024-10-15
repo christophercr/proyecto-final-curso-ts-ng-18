@@ -4,20 +4,20 @@ import { FormControl, Validators } from '@angular/forms';
 export class Solicitud {
   nombre: string;
   email: string;
-  edad: string;
-  anyosExperiencia: string;    
+  edad: number;
+  anyosExperiencia: number;    
   puestoSolicitud: string;
-  fechaSolicitud: number;
+  fechaSolicitud: Date;
   estadoSolicitud: string;
   _identifier: string;
 
   constructor(
     nombre: string,
     email: string,
-    edad: string,
-    anyosExperiencia: string,    
+    edad: number,
+    anyosExperiencia: number,    
     puestoSolicitud: string,
-    fechaSolicitud: number,
+    fechaSolicitud: Date,
     estadoSolicitud: string,
     identifier?: string,
   ) {

@@ -3,6 +3,8 @@ import { PaginaInicioComponent } from './pages/pagina-inicio/pagina-inicio.compo
 import { PaginaSolicitudesComponent } from './pages/pagina-solicitudes/pagina-solicitudes/pagina-solicitudes.component';
 import { SolicitudNuevaComponent } from './components/solicitud-nueva/solicitud-nueva.component';
 import { SolicitudListadoComponent } from './components/solicitud-listado/solicitud-listado.component';
+import { SolicitudEdicionComponent } from './components/solicitud-edicion/solicitud-edicion.component';
+
 
 export const routes: Routes = [
     {
@@ -25,7 +27,7 @@ export const routes: Routes = [
            },
            {
             path: 'solicitud-edicion', 
-            component: SolicitudListadoComponent, 
+            component: SolicitudEdicionComponent, 
           },
          ]
       },
