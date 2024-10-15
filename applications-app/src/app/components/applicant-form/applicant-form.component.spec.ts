@@ -3,6 +3,7 @@ import { ApplicantFormComponent} from './applicant-form.component';
 import { ApplicationsService } from '../../services/applications.service';
 import { provideAnimations } from '@angular/platform-browser/animations';
 
+
 describe('Suite of tests on applicant-form.component (applicantForm)', () => {
   let component: ApplicantFormComponent;
   let fixture: ComponentFixture<ApplicantFormComponent>;
