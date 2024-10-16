@@ -2,7 +2,7 @@
   <p>
     <mat-form-field appearance="fill">
       <mat-label>Nombre y apellidos:</mat-label>
-      <input matInput id="name" formControlName="name" />
+      <input data-test="field-name" matInput id="name" formControlName="name" />
       @if (applicantForm.controls.name.invalid && (applicantForm.dirty ||
       applicantForm.touched)) { } @else {<mat-icon matSuffix
         >sentiment_very_satisfied</mat-icon

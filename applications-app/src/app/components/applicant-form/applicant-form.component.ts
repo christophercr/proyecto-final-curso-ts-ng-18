@@ -34,8 +34,19 @@ import { provideAnimations } from '@angular/platform-browser/animations';
   ],
   templateUrl: './applicant-form.component.html',
   styleUrl: './applicant-form.component.css',
-  animations: []
+  animations: [
+    trigger('transitionMessages', [
+      transition(':enter', [
+        style({ opacity: 0 }),
+        animate('500ms', style({ opacity: 1 }))
+      ]),
+      transition(':leave', [
+        animate('500ms', style({ opacity: 0 }))
+      ])
+    ])
+  ]
 })
+
 export class ApplicantFormComponent {
   private readonly _applicantservice = inject(ApplicationsService);
 
