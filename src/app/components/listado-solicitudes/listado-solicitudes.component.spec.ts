@@ -65,14 +65,40 @@ describe('ListadoSolicitudesComponent', () => {
 
   fdescribe('Tabla:', () => {
     describe('Columna edad', () =>{
-      it('comprobar que se muestra la edad calculada desde la fecha de nacimiento', () => {
+      it('se muestra la edad calculada desde la fecha de nacimiento', () => {
         const compiledHtml = fixture.nativeElement as HTMLElement;
         const tablaSolicitudes = compiledHtml.querySelector('[data-test="tabla-solicitudes"]') as HTMLTableElement;
 
         const anioEsperado = new Date().getFullYear() - new Date(1975, 9, 30).getFullYear();//Misma fecha que el objeto
         expect(tablaSolicitudes.tBodies[0].childNodes[0].childNodes[2].textContent).toBe(anioEsperado.toString());
       });
+      it('se puede ordenar por nombre, puesto o estado de solicitud', () => {
+        const dummyCollectionOrdenacion:Solicitud[] = [
+          new Solicitud('567',new Persona('Lola', 'lola@gmail.com', new Date(1975, 9, 30)), 
+            'Jefe de Proyecto',new Date(),'En espera',8),            
+          new Solicitud('567',new Persona('Martin', 'martin@gmail.com', new Date(1975, 9, 30)), 
+          'Analista',new Date(),'Aceptada',6)
+        ];
+        component.solicitudes = dummyCollectionOrdenacion;
+        const compiledHtml = fixture.nativeElement as HTMLElement;
+
+        expect(component.solicitudes[0].estadoSolicitud).toEqual('En espera');
+        const estadoSortButton = compiledHtml.querySelector('[data-test="estado-sort"]') as HTMLButtonElement;
+        estadoSortButton.click();
+        expect(component.solicitudes[0].estadoSolicitud).toEqual('Aceptada');
+
+        expect(component.solicitudes[0].persona.nombreCompleto).toEqual('Martin');
+        const nombreSortButton = compiledHtml.querySelector('[data-test="nombre-sort"]') as HTMLButtonElement;
+        nombreSortButton.click();
+        expect(component.solicitudes[0].persona.nombreCompleto).toEqual('Lola');
+
+        expect(component.solicitudes[0].puestoSolicitado).toEqual('Jefe de Proyecto');
+        const puestoSortButton = compiledHtml.querySelector('[data-test="puesto-sort"]') as HTMLButtonElement;
+        puestoSortButton.click();
+        expect(component.solicitudes[0].puestoSolicitado).toEqual('Analista');
+      });
     });
+    
   });
 
 });
