@@ -27,7 +27,7 @@
       <input matInput id="age" formControlName="age" type="number"/>
       @if (applicantForm.controls.age.invalid && (applicantForm.dirty ||
       applicantForm.touched)) { 
-           <span>La edad es obligatoria y debe ser un número entre 18 y 120.</span>
+           <span data-test="form-age-span-error">La edad es obligatoria y debe ser un número entre 18 y 120.</span>
       } @else {<mat-icon matSuffix
         >sentiment_very_satisfied</mat-icon
       >}
@@ -92,5 +92,5 @@
 </p>
 
   <!-- <button type="submit" [disabled]="applicantForm.invalid">Enviar</button> -->
-  <button type="button" data-test="button-create" (click)="sendApplicantForm()" createApplicant>Enviar</button>
+  <button type="button" data-test="button-create" [disabled]="applicantForm.invalid" (click)="sendApplicantForm()" createApplicant>Enviar</button>
 </form>
