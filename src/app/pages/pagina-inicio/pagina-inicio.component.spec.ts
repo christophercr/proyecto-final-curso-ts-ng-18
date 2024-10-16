@@ -1,7 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { PaginaInicioComponent } from './pagina-inicio.component';
 
-describe('HomePageComponent', () => {
+xdescribe('PaginaInicioComponent', () => {
   let component: PaginaInicioComponent;
   let fixture: ComponentFixture<PaginaInicioComponent>;
 

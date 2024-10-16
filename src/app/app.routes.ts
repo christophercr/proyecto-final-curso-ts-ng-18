@@ -1,6 +1,5 @@
 import { Routes } from '@angular/router';
 import { PaginaInicioComponent } from './pages/pagina-inicio/pagina-inicio.component';
-import { PaginaSolicitudesComponent } from './pages/pagina-solicitudes/pagina-solicitudes/pagina-solicitudes.component';
 import { SolicitudNuevaComponent } from './components/solicitud-nueva/solicitud-nueva.component';
 import { SolicitudListadoComponent } from './components/solicitud-listado/solicitud-listado.component';
 import { SolicitudEdicionComponent } from './components/solicitud-edicion/solicitud-edicion.component';
