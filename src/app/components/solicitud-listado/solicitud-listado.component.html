@@ -1,3 +1,23 @@
+<!-- <div class="filtro">
+    Ordenar por nombre: <select type="texto"  placeholder="Ordenar por" >
+    <option value="puesto">Puesto Solicitado</option>
+    <option value="experiencia">Años de Experiencia</option>
+    <option value="fecha">Fecha de Solicitud</option>    
+  </select> 
+  <br>
+</div> -->
+<div class="ordenar">
+  Ordenar por nombre: <select [(ngModel)]="selectedOption">
+  <option *ngFor="let o of options">
+     {{o.name}}
+  </option>
+</select>
+ <button (click)="ordenar()">Ordenar</button>
+</div>
+
+<!-- <p>Selected option: {{ selectedOption }}</p>
+<p>Button output: {{ printedOption }}</p> -->
+
 <table class="collectionTable">
     <thead>
       <tr>
@@ -11,6 +31,7 @@
       </tr>
    
     </thead>
+    
     <tbody>
       @for (solicitud of solicitudes; track solicitud._identifier) {
         <tr>          
@@ -36,5 +57,5 @@
         </tr>
       }
     </tbody>
-  </table>
+</table>
   

@@ -23,9 +23,9 @@ export class SolicitudService {
   }
 
   recargarSolicitudes():void{
-    let nuevaSolicitud1 = new Solicitud('Sergio','sergio@gmail.com', 34, 7, 'Programador', new Date(2022, 3, 18, 0, 0, 0), 'En Espera' );
-    let nuevaSolicitud2 = new Solicitud('Juan','juan@gmail.com', 22, 7, 'AnalistaProgramador', new Date(2022, 3, 18, 0, 0, 0), 'En Espera' );
-    let nuevaSolicitud3 = new Solicitud('Ana Julia','anajulian@gmail.com', 34, 7, 'Programador', new Date(2022, 3, 18, 0, 0, 0), 'En Espera' );
+    let nuevaSolicitud1 = new Solicitud('Sergio','sergio@gmail.com', 34, 14, 'Programador', new Date(2022, 7, 18, 0, 0, 0), 'En Espera' );
+    let nuevaSolicitud2 = new Solicitud('Juan','juan@gmail.com', 22, 7, 'AnalistaProgramador', new Date(2022, 3, 1, 0, 0, 0), 'En Espera' );
+    let nuevaSolicitud3 = new Solicitud('Ana Julia','anajulian@gmail.com', 34, 1, 'Programador', new Date(2022, 11, 11, 0, 0, 0), 'En Espera' );
 
     this.listaSolicitudes[0] = nuevaSolicitud1;
     this.listaSolicitudes[1] = nuevaSolicitud2;
