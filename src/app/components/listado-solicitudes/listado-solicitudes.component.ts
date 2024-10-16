@@ -1,16 +1,18 @@
-import { Component, EventEmitter, inject, Input, Output } from '@angular/core';
+import { ChangeDetectionStrategy, Component, EventEmitter, inject, Input, Output } from '@angular/core';
 import { Solicitud } from '../../models/solicitud.model';
 import { EdadDesdeFechaNacimientoPipe } from '../../pipes/edad-desde-fecha-nacimiento.pipe';
 import { RouterOutlet, RouterLink, Router, NavigationStart} from '@angular/router';
 import { DatePipe } from '@angular/common';
 import { MatIconModule } from '@angular/material/icon';
+import { ColumnasOrdenables } from '../../custom-types/solicitud-types';
 
 @Component({
   selector: 'app-listado-solicitudes',
   standalone: true,
   imports: [EdadDesdeFechaNacimientoPipe, RouterOutlet, RouterLink, DatePipe, MatIconModule ],
   templateUrl: './listado-solicitudes.component.html',
-  styleUrl: './listado-solicitudes.component.css'
+  styleUrl: './listado-solicitudes.component.css',
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class ListadoSolicitudesComponent {
   router = inject(Router);
@@ -36,7 +38,7 @@ export class ListadoSolicitudesComponent {
     this.borrado = true;
   }
 
-  ordenar(event:string):void{
+  ordenar(event:ColumnasOrdenables):void{
     switch(event) { 
       case 'Nombre': { 
         this.solicitudes.sort(function (a, b) {
