@@ -1,7 +1,8 @@
-import { Component, EventEmitter, Output } from '@angular/core';
+import { Component, EventEmitter, inject, Output } from '@angular/core';
 import { AbstractControl, FormControl, FormGroup, ReactiveFormsModule, ValidationErrors, ValidatorFn, Validators } from '@angular/forms';
 import { AsyncPipe, JsonPipe, KeyValuePipe } from '@angular/common';
 import { Solicitud } from '../../models/solicitud.model';
+import { SolicitudService } from '../../services/solicitud.service';
 
 
 export function validarAnyosExperiencia(): ValidatorFn {
@@ -23,13 +24,15 @@ export function validarAnyosExperiencia(): ValidatorFn {
   styleUrl: './solicitud-nueva.component.css'
 })
 export class SolicitudNuevaComponent {
+  private _solicitudService = inject(SolicitudService);
+
  @Output()
  created: EventEmitter<Solicitud> = new EventEmitter<Solicitud>(); 
  
     myForm = new FormGroup({
     nombre: new FormControl('', [Validators.required, Validators.maxLength(40)]),    
     email: new FormControl('', [Validators.required, Validators.email]),
-    edad: new FormControl('', [Validators.required,Validators.pattern(/^(0?[1-9]|[12][0-9]|3[01])[\/\-](0?[1-9]|1[012])[\/\-]\d{4}$/)]), 
+    edad: new FormControl('', Validators.required), 
     anyosExperiencia: new FormControl(0, [validarAnyosExperiencia()]), 
     puestoSolicitud: new FormControl('', Validators.required),
     fechaSolicitud: new FormControl('',Validators.required),
@@ -45,6 +48,7 @@ export class SolicitudNuevaComponent {
       }
 
       const solicitudACrear: Solicitud = new Solicitud(
+        
         rawValue.nombre,
         rawValue.email === null ? undefined : rawValue.description,
         rawValue.edad,
@@ -54,7 +58,9 @@ export class SolicitudNuevaComponent {
         rawValue.estadoSolicitud,       
       );
 
-      this.created.emit(solicitudACrear);
+      this._solicitudService.crearSolicitud(solicitudACrear);
+      this._solicitudService.consultarSolicitudes();
+      this.created.emit();      
       this.myForm.reset();
     }
   } 

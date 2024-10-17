@@ -36,6 +36,7 @@ export class Solicitud {
       this._identifier = Math.random().toString(36).substr(2, 9);
     }
     
+    
    }
 
   
