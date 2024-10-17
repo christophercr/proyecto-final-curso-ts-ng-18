@@ -50,7 +50,7 @@ export class SolicitudNuevaComponent {
       const solicitudACrear: Solicitud = new Solicitud(
         
         rawValue.nombre,
-        rawValue.email === null ? undefined : rawValue.description,
+        rawValue.email === null ? undefined : rawValue.email,
         rawValue.edad,
         rawValue.anyosExperiencia,
         rawValue.puestoSolicitud,
