@@ -72,6 +72,16 @@
       "position": "asaV",
       "dateOfApplication": "2024-09-30T22:00:00.000Z",
       "status": "aprovado"
+    },
+    {
+      "id": "4021",
+      "name": "Jorge",
+      "email": "jorgealva@agroseguro.es",
+      "age": 44,
+      "yearsExp": 2,
+      "position": "asaV",
+      "dateOfApplication": "1985-12-11T23:00:00.000Z",
+      "status": "rechazado"
     }
   ]
 }

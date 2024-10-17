@@ -1,8 +1,12 @@
-describe('applicant-form spec', () => {
 
+
+describe('applicant-form spec', () => {
+  beforeEach(() => {
+    cy.visit('http://localhost:4200');
+  });
     describe('navega a la ruta esperada', () => {
         it('renderiza la página applicant-form.component.html', () => {
-          cy.url().should('eq', 'http://localhost:4200');
+          cy.url().should('eq', 'http://localhost:4200/');
     
           cy.contains('Cunchis Doe');
         });

@@ -33,9 +33,10 @@ export class ApplicationsService {
   applicantHTTPRequesting(
     applicantOrId: ApplicantModel | string,
     typeOfChange: string
-  ): Promise<void> | undefined | void {
+  ): Promise<void>{
     if (!applicantOrId) {
       throw new Error('The applicant or its Id cannot be null or undefined!');
+      
     }
     if (typeOfChange === 'create-applicant') {
       if (!(applicantOrId instanceof ApplicantModel)) {
@@ -67,6 +68,7 @@ export class ApplicationsService {
       );
     } // Fin 'create-applicant'
 
+    return Promise.resolve();
 
   }// Fin applicantHTTPService
 }
