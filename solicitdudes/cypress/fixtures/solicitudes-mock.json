@@ -1,5 +1,5 @@
-{
-  "solicitudes": [
+[
+
     {
       "nombre": "David Bartolome",
       "email": "davidof1977@hotmail.com",
@@ -7,7 +7,7 @@
       "experiencia": 20,
       "puesto": "test",
       "id": "5c4e",
-      "fecha": "2024-10-19T07:11:59.050Z",
+      "fecha": "2024-10-19T06:30:59.056Z",
       "estado": "rechazado",
       "edad": 47
     },
@@ -99,5 +99,4 @@
       "estado": "en espera",
       "edad": 25
     }
-  ]
-}
+]
