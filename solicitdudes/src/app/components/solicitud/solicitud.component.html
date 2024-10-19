@@ -1,13 +1,13 @@
 <form [formGroup]="formulario" (submit)="enviar()">
   <div>
     <label for="nombre">Nombre:</label>
-    <input type="text" formControlName="nombre">
-    @if (formulario.controls.nombre.touched && formulario.controls.nombre.errors) {
+    <input type="text" id="nombre" name="nombre"  [formControl]="formulario.controls.nombre">
+    @if ((formulario.controls.nombre.touched || formulario.controls.nombre.dirty) && formulario.controls.nombre.errors) {
       @if (formulario.controls.nombre.errors['required']) {
-        <div class="colorError">El campo nombre es requerido.</div>
+        <div class="colorError" id="errores-validacion-nombre-req">El campo nombre es requerido.</div>
       }
       @if (formulario.controls.nombre.errors['maxLength']) {
-        <div class="colorError">El campo nombre solo puede terner 40 caracteres.</div>
+        <div class="colorError" data-test="errores-validacion-nombre-size">El campo nombre solo puede terner 40 caracteres.</div>
       }
     }
   </div>
@@ -37,7 +37,7 @@
   </div>
   <div>
     <label for="puesto">Puesto solicitado:</label>
-    <input type="text" formControlName="puesto">
+    <input type="text" id="puesto" formControlName="puesto">
   </div>
   <div>
     <label for="experiencia">Experiencia:</label>
@@ -53,13 +53,13 @@
   </div>
   <div>
     <label for="estado">Estado:</label>
-    <select formControlName="estado" >
+    <select id="estado" formControlName="estado" >
       <option value="en espera" selected>en espera</option>
       <option value="aprobado">aprobado</option>
       <option value="rechazado">rechazado</option>
     </select>
   </div>
   <div>
-    <button type="submit" [disabled]="formulario.invalid">Enviar solicitud</button>
+    <button id="submit" type="submit" [disabled]="formulario.invalid">Enviar solicitud</button>
   </div>
 </form>

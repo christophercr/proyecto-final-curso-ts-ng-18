@@ -18,7 +18,7 @@ export class SolicitudService {
     return this.http.get<Solicitud[]>(this.base + '/solicitudes')
   }
   getSolicitudPorNombre(nombre:string): Observable<Solicitud[]>{
-    return this.getSolicitudes().pipe(
+    return this.http.get<Solicitud[]>(this.base + '/solicitudes').pipe(
       map(datos => {
         const r = new RegExp(`${nombre}\.*`);
         return datos.filter(dato => dato.nombre.match(r))

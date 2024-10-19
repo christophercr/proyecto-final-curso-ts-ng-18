@@ -7,7 +7,7 @@
 </div>
 @if(solicitudes().length>0){
   <div>
-    <table class="collectionTable">
+    <table id="tabla" class="collectionTable">
       <tr>
         <th>Nombre</th>
         <th>email</th>
@@ -18,18 +18,18 @@
         <th>Estado</th>
       </tr>
       @for (item of solicitudes(); track $index) {
-        <tr class="item" (click)="editarSolicitud(item)">
-          <td>{{item.nombre}}</td>
+        <tr id="solicitante" class="item" (click)="editarSolicitud(item)">
+          <td id="itemNombre">{{item.nombre}}</td>
           <td>{{item.email}}</td>
           <td>{{item.edad}}</td>
           <td>{{item.experiencia}}</td>
           <td>{{item.puesto}}</td>
           <td>{{item.fecha}}</td>
-          <td>{{item.estado}}</td>
+          <td id="estado">{{item.estado}}</td>
         </tr>
       }
     </table>
     </div>
 }@else {
-  <div><h2>No se han encontrado candidatos con los criterios de busqueda seleccionados</h2></div>
+  <div><h2 id="h2NoElementos">No se han encontrado candidatos con los criterios de busqueda seleccionados</h2></div>
 }

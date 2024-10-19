@@ -36,7 +36,7 @@ export class SolicitudesComponent {
     })
 
     this.suscripcion = this.searchSubject.pipe(
-      debounceTime(5000),
+      debounceTime(500),
       distinctUntilChanged()
 
     ).subscribe(busqueda =>{
